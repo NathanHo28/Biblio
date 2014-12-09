@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_params)
     if @page.save
-      redirect_to story_url, notice "page created successfully"
+      redirect_to stories_url, notice "page created successfully"
     else
       render 'new'
     end
@@ -19,7 +19,9 @@ class PagesController < ApplicationController
 
   def destroy
     @page = Page.find(params[:id])
-    
+    if @page.destroy
+      redirect_to stories_url, notice 'destroyed page successfully'
+    end
   end
 
   def edit
