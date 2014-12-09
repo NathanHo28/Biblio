@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'stories#index'
+  
   resources :pages
   resources :stories
   resources :users, only: [:new, :create, :show, :destroy]
