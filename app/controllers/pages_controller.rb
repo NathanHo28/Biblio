@@ -1,14 +1,19 @@
 class PagesController < ApplicationController
   def create
-  end
 
-  def destroy
   end
 
   def new
+    @page = Page.new
   end
 
   def show
+    @page = Page.find(params[:id])
+  end
+
+  def destroy
+    @page = Page.find(params[:id])
+    
   end
 
   def edit
