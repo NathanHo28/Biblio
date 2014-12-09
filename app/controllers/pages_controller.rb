@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   before_filter :require_login
-  
+
   def create
     @page = Page.new(page_params)
     if @page.save
@@ -41,5 +41,5 @@ class PagesController < ApplicationController
     def page_params
       params.require(:page).permit(:photo_path, :caption, :story_id, :page_number)
     end
-    
+
 end
