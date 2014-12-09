@@ -1,5 +1,12 @@
 class PagesController < ApplicationController
+
   def create
+    @page = Page.new(page_params)
+    if @page.save
+      redirect_to story_url, notice "page created successfully"
+    else
+      render 'new'
+    end
 
   end
 
