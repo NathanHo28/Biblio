@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  before_filter :require_login
+  before_filter :require_login, except: [:show]
 
   def create
     @page = Page.new(page_params)
