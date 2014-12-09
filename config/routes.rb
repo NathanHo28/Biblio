@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'pages/create'
 
   get 'pages/destroy'
@@ -25,6 +26,15 @@ Rails.application.routes.draw do
   get 'stories/update'
 
   get 'stories/destroy'
+
+
+  get 'pins/new'
+
+  get 'pins/create'
+
+  get 'pins/destroy'
+
+  get 'pins/show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
