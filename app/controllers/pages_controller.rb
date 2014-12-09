@@ -34,4 +34,10 @@ class PagesController < ApplicationController
       redirect_to page_path(@page)
     end
   end
+
+  private
+    def page_params
+      params.require(:page).permit(:photo_path, :caption, :story_id, :page_number)
+    end
+    
 end
