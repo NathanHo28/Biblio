@@ -1,40 +1,8 @@
 Rails.application.routes.draw do
 
-
-  get 'pages/create'
-
-  get 'pages/destroy'
-
-  get 'pages/new'
-
-  get 'pages/show'
-
-  get 'pages/edit'
-
-  get 'pages/update'
-
-  get 'stories/index'
-
-  get 'stories/new'
-
-  get 'stories/create'
-
-  get 'stories/show'
-
-  get 'stories/edit'
-
-  get 'stories/update'
-
-  get 'stories/destroy'
-
-
-  get 'pins/new'
-
-  get 'pins/create'
-
-  get 'pins/destroy'
-
-  get 'pins/show'
+  resources :pages
+  resources :stories
+  resources :users, only: [:new, :create, :show, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
