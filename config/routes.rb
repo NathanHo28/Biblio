@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'stories/index'
+
+  get 'stories/new'
+
+  get 'stories/create'
+
+  get 'stories/show'
+
+  get 'stories/edit'
+
+  get 'stories/update'
+
+  get 'stories/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
