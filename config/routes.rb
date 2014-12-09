@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
   root 'stories#index'
-  
+
   resources :pages
   resources :stories
   resources :users, only: [:new, :create, :show, :destroy]
-
+  resources :pins
+  
   get 'login' => 'user_session#new', as: 'login'
   get 'logout' => 'user_session#destroy', as: 'logout'
 
