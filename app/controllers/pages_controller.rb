@@ -29,5 +29,9 @@ class PagesController < ApplicationController
   end
 
   def update
+    @page = Page.find(params[:id])
+    if @page.update_attributes(page_params)
+      redirect_to page_path(@page)
+    end
   end
 end
