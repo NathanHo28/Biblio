@@ -7,7 +7,6 @@ class PagesController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def new
