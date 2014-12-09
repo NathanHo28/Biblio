@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  before_filter :require_login
+  
   def create
     @page = Page.new(page_params)
     if @page.save
