@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209001817) do
+ActiveRecord::Schema.define(version: 20141209200829) do
 
   create_table "pages", force: true do |t|
     t.string   "photo_path"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141209001817) do
     t.integer  "story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "page_number"
   end
 
   create_table "pins", force: true do |t|
