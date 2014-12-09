@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :stories
   resources :users, only: [:new, :create, :show, :destroy]
 
+  get 'login' => 'user_session#new', as: 'login'
+  get 'logout' => 'user_session#destroy', as: 'logout'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
