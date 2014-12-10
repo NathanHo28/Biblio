@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_filter :require_login, except: [:index, :show]
+  # before_filter :require_login, except: [:index, :show]
 
   def index
     @stories = Story.order('stories.created_at DESC')#.page(params[:page])

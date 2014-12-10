@@ -16,7 +16,7 @@
 	<p> Illustrate your story! </p>
 	<div class="pages">
 	<%= s.fields_for :pages do |page_fields| %>
-		<%= render 'page_creation_form', s: page_fields %>
+		<%= render 'page_fields', s: page_fields %>
 	<% end %>
 	<%= link_to_add_association "Add page!", s, :pages %>
 
