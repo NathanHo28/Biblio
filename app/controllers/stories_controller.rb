@@ -1,8 +1,8 @@
 class StoriesController < ApplicationController
-  before_filter :require_login, except: [:show]
+  before_filter :require_login, except: [:index, :show]
 
   def index
-    @stories = Story.order('stories.created_at DESC').page(params[:page])
+    @stories = Story.order('stories.created_at DESC')#.page(params[:page])
   end
 
   def new
@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
     @story.owner_id = current_user.id
     if @story.save
-      redirect_to stories_path, notice "story created successfully"
+      redirect_to stories_path, notice: "story created successfully"
     else
       render :new
     end
@@ -39,7 +39,7 @@ class StoriesController < ApplicationController
   def destroy
     @story = Story.find(params[:id])
     @story.destroy
-      redirect_to stories_path, notice: "story has been removed"
+    redirect_to stories_path, notice: "story has been removed"
   end
 
   private

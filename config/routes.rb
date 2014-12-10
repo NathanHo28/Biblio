@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
-  root 'stories#index'
+  root 'user_sessions#new'
 
-  resources :pages
-  resources :stories
+  resources :pages, except: [:index]
   resources :users, only: [:new, :create, :show, :destroy]
-  resources :pins
+  resources :pins, only: [:create, :show, :destroy]
+  resources :user_sessions
   
-  get 'login' => 'user_session#new', as: 'login'
-  get 'logout' => 'user_session#destroy', as: 'logout'
+  resources :stories
+  # get 'stories/splash'
+
+  get 'login' => 'user_sessions#new', as: 'login'
+  get 'logout' => 'user_sessions#destroy', as: 'logout'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
