@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209200829) do
+ActiveRecord::Schema.define(version: 20141210191540) do
 
   create_table "pages", force: true do |t|
     t.string   "photo_path"
@@ -37,15 +37,15 @@ ActiveRecord::Schema.define(version: 20141209200829) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name",                      null: false
-    t.string   "last_name",                       null: false
-    t.string   "username",                        null: false
-    t.string   "photo",                           null: false
-    t.string   "about_me",                        null: false
-    t.string   "home_town",                       null: false
-    t.string   "email",                           null: false
-    t.string   "crypted_password",                null: false
-    t.string   "salt",                            null: false
+    t.string   "first_name",                                   null: false
+    t.string   "last_name",                                    null: false
+    t.string   "username",                                     null: false
+    t.string   "photo",                           default: "", null: false
+    t.string   "about_me",                        default: "", null: false
+    t.string   "home_town",                       default: "", null: false
+    t.string   "email",                                        null: false
+    t.string   "crypted_password",                             null: false
+    t.string   "salt",                                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_me_token"
