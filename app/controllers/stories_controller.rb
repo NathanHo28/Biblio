@@ -30,7 +30,7 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
     if @story.update_attributes(story_params)
-      redirect_to stories_path(@story), notice "story has been updated"
+      redirect_to stories_path(@story), notice: "story has been updated"
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class StoriesController < ApplicationController
   def destroy
     @story = Story.find(params[:id])
     @story.destroy
-      redirect_to stories_path, notice "story has been removed"
+      redirect_to stories_path, notice: "story has been removed"
   end
 
   private
