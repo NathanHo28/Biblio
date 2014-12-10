@@ -32,6 +32,9 @@ gem 'spring',        group: :development
 #for logins an shit
 gem 'sorcery'
 
+#for image display/upload/whatever
+gem 'carrierwave'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets'
