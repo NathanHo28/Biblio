@@ -1,1 +1,11 @@
-_story_creation_form.html.erb
+<%= form_for(@story) do |s| %>
+
+	<div class ="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</div>
+	<div>
+	    <%= f.label :image %>
+	    <%= f.file_field :image %>
+	<div>
+	<!-- this is how we do images, right? -->
