@@ -12,5 +12,16 @@
 	<div>
 		<%= f.hidden_field :owner, :value => current_user %>
 	</div>
-	
+
 	<p> Illustrate your story! </p>
+	<div class="chapters">
+	<%= s.fields_for :chapters do |chapter_fields| %>
+		<%= render 'chapter_creation_field', s: chapter_fields %>
+	<% end %>
+	<%= link_to_add_association "Add chapter!", s, :chapters %>
+
+	<div class="action">
+		<%= f.submit %>
+	</div>
+
+<% end %>
