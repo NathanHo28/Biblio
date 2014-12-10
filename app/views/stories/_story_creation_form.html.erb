@@ -9,3 +9,6 @@
 	    <%= f.file_field :image %>
 	<div>
 	<!-- this is how we do images, right? -->
+	<div>
+		<%= f.hidden_field :owner, :value => current_user %>
+	</div>
