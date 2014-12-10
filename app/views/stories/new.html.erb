@@ -1,2 +1,12 @@
-<h1>Stories#new</h1>
-<p>Find me in app/views/stories/new.html.erb</p>
+
+<% if logged_in? %>
+	<h1>Tell us your story!</h1>
+	<%= render 'story_creation_form' %>
+	<%= link_to 'Return to all stories', stories_path %>
+<% else %>
+	<div class="not-logged-in">
+	<p>
+	We'd love to hear your story! Please <%= link_to "log in", "/login" %>  or <%= link_to "create an account", "/users/new" %> so you can tell it to everybody!
+	</p>
+	</div>
+<% end %>
