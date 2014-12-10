@@ -14,11 +14,11 @@
 	</div>
 
 	<p> Illustrate your story! </p>
-	<div class="chapters">
-	<%= s.fields_for :chapters do |chapter_fields| %>
-		<%= render 'chapter_creation_form', s: chapter_fields %>
+	<div class="pages">
+	<%= s.fields_for :pages do |page_fields| %>
+		<%= render 'page_creation_form', s: page_fields %>
 	<% end %>
-	<%= link_to_add_association "Add chapter!", s, :chapters %>
+	<%= link_to_add_association "Add page!", s, :pages %>
 
 	<div class="action">
 		<%= f.submit %>
