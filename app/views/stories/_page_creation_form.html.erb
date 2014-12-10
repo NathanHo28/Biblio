@@ -1,0 +1,13 @@
+<div class="nested-fields">
+	<div class='field'>
+		<%= f.label :amount %> <br>
+		<%= f.number_field :amount %>
+	</div>
+	<div class='field'>
+		<%= f.label :description %> <br>
+		<%= f.text_field :description %>
+	</div>
+	<div>
+		<%= f.hidden_field :project_id, :value => @project.id %>
+	</div>
+</div>
