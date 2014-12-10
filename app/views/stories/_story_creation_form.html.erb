@@ -1,0 +1,27 @@
+<%= form_for(@story) do |s| %>
+
+	<div class ="field">
+		<%= s.label :title %><br />
+		<%= s.text_field :title %>
+	</div>
+	<div>
+	    <%= s.label :image %>
+	    <%= s.file_field :image %>
+	<div>
+	<!-- this is how we do images, right? -->
+	<div>
+		<%= s.hidden_field :owner, :value => current_user %>
+	</div>
+
+	<p> Illustrate your story! </p>
+	<div class="pages">
+	<%= s.fields_for :pages do |page_fields| %>
+		<%= render 'page_creation_form', s: page_fields %>
+	<% end %>
+	<%= link_to_add_association "Add page!", s, :pages %>
+
+	<div class="action">
+		<%= s.submit %>
+	</div>
+
+<% end %>
