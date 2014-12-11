@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(story_params)
-    @story.owner_id = current_user.id
+    @story.owner = current_user
     if @story.save
       redirect_to stories_path, notice: "story created successfully"
     else
@@ -44,6 +44,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, pages_attributes: [:photo_path, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
   end
 end

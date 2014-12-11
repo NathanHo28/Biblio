@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 
   private
     def page_params
-      params.require(:page).permit(:photo_path, :caption, :story_id, :page_number)
+      params.require(:page).permit(:page_photo, :caption, :story_id, :page_number)
     end
 
 end
