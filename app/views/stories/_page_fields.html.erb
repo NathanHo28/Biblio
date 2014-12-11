@@ -1,17 +1,17 @@
 <div class="nested-fields">
 	<div>
-	    <%= s.label :image %>
-	    <%= s.file_field :image %>
+	    <%= f.label :image %>
+	    <%= f.file_field :image %>
 	<div>
 	<div class='field'>
-		<%= s.label :caption %> <br>
-		<%= s.text_field :caption %>
+		<%= f.label :caption %> <br>
+		<%= f.text_field :caption %>
 	</div>
 	<div>
-		<%= s.hidden_field :story_id, :value => @story.id %>
+		<%= f.hidden_field :story_id, :value => @story.id %>
 	</div>
 	<div>
-		s.hidden_field :page_number, :value => 0000000000 
+		<%= f.hidden_field :page_number, :value => 0000000000 %>
 		<!-- placeholder value (sorry mates) -->
 	</div>
 </div>
