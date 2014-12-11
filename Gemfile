@@ -34,6 +34,7 @@ gem 'sorcery'
 
 #for image display/upload/whatever
 gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'pry-rails'
