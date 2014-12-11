@@ -44,6 +44,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title)
+    params.require(:story).permit(:title, pages_attributes: [:photo_path, :caption, :page_number, :story_id])
   end
 end
