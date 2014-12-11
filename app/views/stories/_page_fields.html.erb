@@ -1,0 +1,17 @@
+<div class="nested-fields">
+	<div>
+	    <%= f.label :image %>
+	    <%= f.file_field :image %>
+	<div>
+	<div class='field'>
+		<%= f.label :caption %> <br>
+		<%= f.text_field :caption %>
+	</div>
+	<div>
+		<%= f.hidden_field :story_id, :value => @story.id %>
+	</div>
+	<div>
+		<%= f.hidden_field :page_number, :value => 0000000000 %>
+		<!-- placeholder value (sorry mates) -->
+	</div>
+</div>
