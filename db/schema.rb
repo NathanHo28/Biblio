@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210191540) do
+ActiveRecord::Schema.define(version: 20141211211920) do
 
   create_table "pages", force: true do |t|
-    t.string   "photo_path"
+    t.string   "page_photo"
     t.string   "caption"
     t.integer  "story_id"
     t.datetime "created_at"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20141210191540) do
   create_table "pins", force: true do |t|
     t.integer  "story_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
