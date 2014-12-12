@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class PagePhotoUploader < CarrierWave::Uploader::Base
+class PhotoUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -31,12 +31,10 @@ class PagePhotoUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fit => [75, 75]
-  end
-
-  version :medium do
-    process :resize_to_fit => [200, 200]
+    # process :resize_to_fit => [50, 50]
+    process :resize_and_crop => [75]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -50,5 +48,20 @@ class PagePhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+   def resize_and_crop(size)
+      manipulate! do |image|
+        if image[:width] < image[:height]
+          remove = ((image[:height] - image[:width])/2).round
+          image.shave("0x#{remove}")
+        elsif image[:width] > image[:height]
+          remove = ((image[:width] - image[:height])/2).round
+          image.shave("#{remove}x0")
+        end
+        image.resize("#{size}x#{size}")
+        image
+      end
+   end
 
 end

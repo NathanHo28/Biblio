@@ -11,13 +11,13 @@
   <nav>
 	<p><%= link_to "Home", stories_url %> |
 	<% if current_user %> <!-- Do not need to define this with sorcery -->
-	<p>Signed in as <%= link_to current_user.first_name, current_user %></p>
-		<%= link_to "Logout", :logout, method: :get %>
+	Signed in as <%= link_to current_user.first_name, current_user %> |
+		<%= link_to "Logout", :logout, method: :get %> |
 		<%= link_to "New story", new_story_path %>
 	<% else %>
 		<%= link_to "Register", new_user_path %> |
 		<%= link_to "Login", :login %>
-	<% end %>
+	<% end %></p>
   </nav>
 
   <%= yield %>
