@@ -16,6 +16,12 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
 
+  def following
+  end
+
+  def followers
+  end
+
   def destroy
   	@user = User.find(params[:id])
   	if @user.destroy

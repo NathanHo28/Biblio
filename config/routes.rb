@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root 'user_sessions#new'
 
   resources :pages, except: [:index]
-  resources :users, only: [:new, :create, :show, :destroy]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :pins, only: [:create, :show, :destroy]
   resources :user_sessions
   
