@@ -35,6 +35,9 @@ gem 'sorcery'
 #for image display/upload/whatever
 gem 'carrierwave'
 
+#for faking users and following relationships
+gem 'faker'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets'
