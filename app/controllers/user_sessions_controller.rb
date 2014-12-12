@@ -7,9 +7,10 @@ class UserSessionsController < ApplicationController
   	end
   end
 
+# Flashes and notices dont work!
   def create
-  	if @user = login(params[:email], params[:password])
-  		redirect_back_or_to(:stories, notice: 'Login successful')
+  	if @user = login(params[:email], params[:password], params[:remember_me])
+  		redirect_back_or_to(root_url, notice: 'Login successful')
   	else
   		flash.now[:alert] = 'Login failed'
   		render action: 'new'
@@ -18,6 +19,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
   	logout
-  	redirect_to(:stories, notice: 'Logged out!')
+  	redirect_to root_url, notice: 'Logged out!'
   end
 end

@@ -34,13 +34,12 @@ gem 'sorcery'
 
 #for image display/upload/whatever
 gem 'carrierwave'
-
-#for faking users and following relationships
-gem 'faker'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'faker'
 end
 
 # Use ActiveModel has_secure_password

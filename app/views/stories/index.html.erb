@@ -1,2 +1,11 @@
-<h1>Stories#index</h1>
-<p>Find me in app/views/stories/index.html.erb</p>
+<h1>Stories</h1>
+
+<% @stories.each do |story| %>
+  <div class="story">
+	  <%= story.title %>
+	  <% story.pages.each do |page| %>
+	  	<%= image_tag page.page_photo_url %>
+	  	<%= page.caption %>
+	  <% end %>
+  </div>
+<% end %>
