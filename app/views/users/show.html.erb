@@ -1,5 +1,6 @@
 <h1><%= @user.username %></h1>
 
+<p><%= image_tag @user.photo_url(:thumb) %></p>
 <p><%= @user.first_name %> <%= @user.last_name %></p>
 <p><%= @user.email %></p>
 <p><%= @user.home_town %></p>
