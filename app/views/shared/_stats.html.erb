@@ -1,4 +1,5 @@
-<% @user ||= current_user %>
+<% @user ||= current_user %> 
+<!-- we will be showing this on both user show pages and home pages i think -->
 <div class="stats">
 	<a href="<%= following_user_path(@user) %>">
 		<strong id="following" class="stat">
