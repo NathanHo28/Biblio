@@ -2,9 +2,9 @@
 <div class="row">
 	<section class="user_info">
 		<% @user %>
-		<h1><%=@user.name %></h1>
+		<h1><%=@user.first_name %></h1>
 		<span><%= link_to "View Stories", @user %></span>
-		<span><b>Stories:</b> <%= @user.stories.count %></span>
+		<span><b>Stories:</b> <!-- link_to stories here --> </span>
 	</section>
 	<section class="stats">
 		<%= render 'shared/stats' %>
