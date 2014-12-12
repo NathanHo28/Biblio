@@ -3,8 +3,8 @@
 <% @stories.each do |story| %>
   <div class="story">
 	  <%= story.title %>
-	  <%= story.pages.each do |page| %>
-	  	<%= image_tag page.page_photo_url %> 
+	  <% story.pages.each do |page| %>
+	  	<%= image_tag page.page_photo_url %>
 	  	<%= page.caption %>
 	  <% end %>
   </div>
