@@ -17,10 +17,22 @@ class UsersController < ApplicationController
   end
 
   def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.all
+    render 'show_follow'
   end
 
   def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.all
+    render 'show_follow'
   end
+
+  # rails will implicitly render the template corresponding
+  # to an action, but action following and followers will make
+  # an EXPLICIT call to render the show_follow
 
   def destroy
   	@user = User.find(params[:id])

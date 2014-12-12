@@ -1,0 +1,22 @@
+<% provide(:title, @title) %>
+<div class="row">
+	<section class="user_info">
+		<% @user %>
+		<h1><%=@user.name %></h1>
+		<span><%= link_to "View Stories", @user %></span>
+		<span><b>Stories:</b> <%= @user.stories.count %></span>
+	</section>
+	<section class="stats">
+		<%= render 'shared/stats' %>
+      	<% if @users.any? %>
+      <% end %>
+	</section>
+	<div>
+		<h3><%= @title %></h3>
+		<% if @users.any? %>
+			<ul class="users follow">
+				<%= render @users %>
+			</ul>
+		<% end %>
+	</div>
+</div>
