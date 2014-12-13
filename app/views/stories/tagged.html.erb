@@ -1,0 +1,15 @@
+<h1>Stories with this tag:</h1>
+<% @stories.each do |story| %>
+	<div>
+	<%= story.title %>
+	<% story.pages.each do |page| %>
+	<div class="clickable_image">
+		<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:medium), class: "fancybox", :rel => story.title, :title => page.caption %>
+	</div>
+	<% end %>
+	<div class="likes">
+	  <p>Likes: <%= story.score %></p>
+	  <p><%= link_to "upvote", like_story_path(story), method: :put %></p>
+	</div>	
+</div>
+<% end %>
