@@ -1,5 +1,5 @@
-<div>
-	<%= story.title %>
+<div class="story">
+	<p><%= story.title %></p>
 	<% story.pages.each do |page| %>
 	<div class="clickable_image">
 		<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:medium), class: "fancybox", :rel => story.title, :title => page.caption %>
