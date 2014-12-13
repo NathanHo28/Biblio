@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  acts_as_voter
 
   has_many :pages, through: :own_stories
   has_many :own_stories, class_name: 'Story', foreign_key: 'owner_id'

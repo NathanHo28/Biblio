@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   end
   resources :pins, only: [:create, :show, :destroy]
   resources :user_sessions
-  resources :stories
+  resources :stories do
+    member do
+      put "like", to: "stories#upvote"
+    end
+  end
   resources :relationships, only: [:create, :destroy]
-  #changed for following partials 
+  #changed for following partials
   # ***do we need to initiate a relationships controller?
   get 'login' => 'user_sessions#new', as: 'login'
   get 'logout' => 'user_sessions#destroy', as: 'logout'
