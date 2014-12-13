@@ -7,5 +7,7 @@
 	  	<%= image_tag page.page_photo_url %>
 	  	<%= page.caption %>
 	  <% end %>
+	  <%= story.score %>
+	  <%= link_to "upvote", like_story_path(story), method: :put %>
   </div>
 <% end %>
