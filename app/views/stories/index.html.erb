@@ -1,7 +1,9 @@
 <h1>Stories</h1>
+<%= form_tag stories_path, method: :get, authentication: false, id: 'search-form' do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search" %>
+<% end %>
 
 <div id='story'>
   <%= render @stories %>
 </div>
-
-

@@ -2,7 +2,16 @@ class StoriesController < ApplicationController
   # before_filter :require_login, except: [:index, :show]
 
   def index
-    @stories = Story.order('stories.created_at DESC')#.page(params[:page])
+    @stories = if params[:search]
+        Story.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
+      else
+        Story.order('stories.created_at DESC')#.page(params[:page])
+      end
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
   end
 
   def new
