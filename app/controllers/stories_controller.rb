@@ -19,6 +19,12 @@ class StoriesController < ApplicationController
     end
   end
 
+  def upvote
+    @story = Story.find(params[:id])
+    @story.upvote_by current_user
+    redirect_to stories_path
+  end
+
   def show
     @story = Story.find(params[:id])
   end
@@ -41,6 +47,8 @@ class StoriesController < ApplicationController
     @story.destroy
     redirect_to stories_path, notice: "story has been removed"
   end
+
+
 
   private
   def story_params
