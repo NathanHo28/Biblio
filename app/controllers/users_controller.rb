@@ -58,6 +58,11 @@ class UsersController < ApplicationController
     redirect_to stories_url
   end
 
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless @user == current_user
+  end
+
   private
   def user_params
   	params.require(:user).permit(:first_name, :last_name, :username, :email, :photo, :about_me, :home_town, :password, :password_confirmation)
