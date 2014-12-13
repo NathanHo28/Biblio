@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @user.home_town = 'Your home here!'
     end
   	if @user.save
+      auto_login(@user)
   		redirect_to stories_url, notice: 'Yay!'
   	else
   		render 'new'
