@@ -5,6 +5,7 @@ class Story < ActiveRecord::Base
 	belongs_to :owner, class_name: 'User'
 
 	accepts_nested_attributes_for :pages, :reject_if => :all_blank, :allow_destroy => true
+	acts_as_taggable_on :tags
 	acts_as_votable
 
 	def score

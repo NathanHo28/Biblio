@@ -42,6 +42,9 @@ gem 'mini_magick'
 #for image box/popup display
 gem 'fancybox2-rails'
 
+#for tagging
+gem 'acts-as-taggable-on'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets'
