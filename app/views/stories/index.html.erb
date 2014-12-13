@@ -1,11 +1,6 @@
 <h1>Stories</h1>
 
-<% @stories.each do |story| %>
-  <div class="story">
-	  <%= story.title %>
-	  <% story.pages.each do |page| %>
-	  	<%= image_tag page.page_photo_url %>
-	  	<%= page.caption %>
-	  <% end %>
-  </div>
-<% end %>
+<div id='story'>
+  <%= render @stories %>
+</div>
+
