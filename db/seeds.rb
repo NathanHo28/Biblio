@@ -9,7 +9,7 @@
 User.destroy_all
 Story.destroy_all
 
-50.times do 
+50.times do
 	p User.create!(
 		:first_name => Faker::Name.first_name,
 		:last_name => Faker::Name.last_name,
@@ -30,7 +30,7 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
-50.times do 
+50.times do
 	owner_id = User.all.sample.id
 	s = Story.create!(
 	    :title => Faker::Name.title,

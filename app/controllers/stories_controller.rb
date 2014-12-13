@@ -2,7 +2,16 @@ class StoriesController < ApplicationController
   # before_filter :require_login, except: [:index, :show]
 
   def index
-    @stories = Story.order('stories.created_at DESC')#.page(params[:page])
+    @stories = if params[:search]
+        Story.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
+      else
+        Story.order('stories.created_at DESC')#.page(params[:page])
+      end
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
   end
 
   def new
@@ -17,6 +26,20 @@ class StoriesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def upvote
+    @story = Story.find(params[:id])
+    @story.upvote_by current_user
+    redirect_to stories_path
+  end
+
+  def tagged
+    if params[:tag].present? 
+      @stories = Story.tagged_with(params[:tag])
+    else 
+      @stories = Story.all
+    end  
   end
 
   def show
@@ -42,8 +65,10 @@ class StoriesController < ApplicationController
     redirect_to stories_path, notice: "story has been removed"
   end
 
+
+
   private
   def story_params
-    params.require(:story).permit(:title, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
   end
 end

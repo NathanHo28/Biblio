@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 #cocoon allows for nested forms
 gem 'cocoon'
+
+# adds votes duh
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -35,6 +38,12 @@ gem 'sorcery'
 #for image display/upload/whatever
 gem 'carrierwave'
 gem 'mini_magick'
+
+#for image box/popup display
+gem 'fancybox2-rails'
+
+#for tagging
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'pry-rails'
