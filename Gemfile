@@ -42,6 +42,8 @@ gem 'mini_magick'
 #for image box/popup display
 gem 'fancybox2-rails'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'quiet_assets'

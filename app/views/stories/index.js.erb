@@ -1,1 +1,7 @@
-$('#stories').html("<%= j(render @stories) %>");
+<% if params[:search] %>
+$('#stories').html("<%= j render(@stories) %>");
+<% else %>
+$('#stories').append("<%= j render(@stories) %>");
+<% end %>
+
+$('#stories-pagination').html('<%= j paginate(@stories) %>');
