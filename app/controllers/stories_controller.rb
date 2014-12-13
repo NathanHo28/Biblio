@@ -25,6 +25,14 @@ class StoriesController < ApplicationController
     redirect_to stories_path
   end
 
+  def tagged
+    if params[:tag].present? 
+      @stories = Story.tagged_with(params[:tag])
+    else 
+      @stories = Story.all
+    end  
+  end
+
   def show
     @story = Story.find(params[:id])
   end
@@ -52,6 +60,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
   end
 end
