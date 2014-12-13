@@ -8,3 +8,9 @@ Kaminari.configure do |config|
   # config.page_method_name = :page
   # config.param_name = :page
 end
+
+ module ActiveRecord
+ 	class Relation
+ 		alias_method :total_count, :count
+ 	end
+ end

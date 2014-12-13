@@ -31,7 +31,10 @@ class StoriesController < ApplicationController
   def upvote
     @story = Story.find(params[:id])
     @story.upvote_by current_user
-    redirect_to stories_path
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
