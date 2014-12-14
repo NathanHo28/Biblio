@@ -10,7 +10,7 @@ User.destroy_all
 Story.destroy_all
 
 50.times do
-	p User.create!(
+	User.create!(
 		:first_name => Faker::Name.first_name,
 		:last_name => Faker::Name.last_name,
 		:username => Faker::Internet.user_name,
@@ -19,6 +19,7 @@ Story.destroy_all
 		:password_confirmation => 'test'
 		#does this work?
 	)
+	print "|"
 end
 
 #following relationships
@@ -30,12 +31,18 @@ followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
+tags = %w[food money shoes hair travel desk hat goat chair cheese bacon linux mint bitmaker]
+
 50.times do
 	owner_id = User.all.sample.id
 	s = Story.create!(
 	    :title => Faker::Name.title,
 	    :owner_id => owner_id
 	)
+	3.times do
+		s.tag_list.add(tags.sample) 
+	end
+	s.save
 
 	['sammich.jpeg', 'eye_scream.jpeg', 'boiger.jpg', 'buggy.jpg'].each do |image|
 		page = Page.create!(caption: Faker::Company.bs)

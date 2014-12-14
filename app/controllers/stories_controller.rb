@@ -3,15 +3,16 @@ class StoriesController < ApplicationController
 
   def index
     @stories = if params[:search]
-        Story.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
-      else
-        Story.order('stories.created_at DESC')
-      end.page(params[:page])
+      (Story.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%") +
+       Story.tagged_with(params[:search], :any => true)).uniq
+    else
+      Story.order('stories.created_at DESC')#.page(params[:page])
+    end
 
-      respond_to do |format|
-        format.html
-        format.js
-      end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
