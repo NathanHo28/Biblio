@@ -3,15 +3,18 @@ class StoriesController < ApplicationController
 
   def index
     @stories = if params[:search]
-        Story.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
-      else
-        Story.order('stories.created_at DESC')
-      end.page(params[:page])
+      results = (Story.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%") +
+                 Story.tagged_with(params[:search], :any => true)).uniq
+      Kaminari.paginate_array(results)
+      # page cannot ordinarily be called on arrays so need to call special paginate method
+    else
+      Story.order('stories.created_at DESC')
+    end.page(params[:page])
 
-      respond_to do |format|
-        format.html
-        format.js
-      end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

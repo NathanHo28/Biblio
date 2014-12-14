@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_filter require_login, except: [:show]
+  before_filter :require_login, except: [:show]
   before_filter :load_story
 
   def create
