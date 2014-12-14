@@ -10,13 +10,15 @@ User.destroy_all
 Story.destroy_all
 
 50.times do
-	User.create!(
+	user = User.create!(
 		:first_name => Faker::Name.first_name,
 		:last_name => Faker::Name.last_name,
 		:username => Faker::Internet.user_name,
 		:email => Faker::Internet.email,
 		:password => 'test',
-		:password_confirmation => 'test'
+		:password_confirmation => 'test',
+		:about_me => Faker::Hacker.say_something_smart,
+		:photo => open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
 		#does this work?
 	)
 	print "|"
