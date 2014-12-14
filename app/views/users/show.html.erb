@@ -6,29 +6,6 @@
 <p><%= @user.email %></p>
 <p><%= @user.home_town %></p>
 <p><%= @user.about_me %></p>
-<<<<<<< HEAD
-
-<h3>My Stories: </h3>
-
-	<% @user.own_stories.each do |story| %>
-		<p><%= story.title %></p>
-		<% story.pages.each do |page| %>
-		<div class="user_page">
-			<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:medium), class: "fancybox", :rel => story.title, :title => page.caption %>
-		</div>
-		<div class="tags">
-			<% story.tags.any? %>
-			<% story.tags.each do |tag| %>
-			  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
-			<% end %>
-		</div>
-		<% end %>
-		<div class="story-<%=story.id%>">
-		  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
-		  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
-		</div>
-	<% end %>
-=======
 <p><%= render 'follow_form' if logged_in? %></p>
 
 <section class="stats">
@@ -36,7 +13,6 @@
 </section>
 
 <h3>My Stories: </h3>
->>>>>>> follow
 
 	<% @user.own_stories.each do |story| %>
 		<p><%= story.title %></p>
@@ -57,6 +33,9 @@
 		</div>
 	<% end %>
 
+<p><%= render 'follow_form' if logged_in? %></p>
+
 <section class="stats">
 	<%= render 'shared/stats' %>
 </section>
+
