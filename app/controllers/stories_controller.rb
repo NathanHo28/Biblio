@@ -6,8 +6,8 @@ class StoriesController < ApplicationController
       (Story.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%") +
        Story.tagged_with(params[:search], :any => true)).uniq
     else
-      Story.order('stories.created_at DESC')#.page(params[:page])
-    end
+      Story.order('stories.created_at DESC')
+    end.page(params[:page])
 
     respond_to do |format|
       format.html
