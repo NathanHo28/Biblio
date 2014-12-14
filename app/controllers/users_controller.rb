@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
   	@user = User.new
   end
@@ -55,6 +56,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to stories_url
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless @user == current_user
   end
 
   private
