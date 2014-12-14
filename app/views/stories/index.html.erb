@@ -1,9 +1,12 @@
 <h1>Stories</h1>
+<p id="stories-count"><%= page_entries_info @stories %></p>
 <%= form_tag stories_path, method: :get, authentication: false, id: 'search-form' do %>
 	<%= text_field_tag :search, params[:search] %>
 	<%= submit_tag "Search" %>
 <% end %>
 
-<div id='story'>
+<div id='stories'>
   <%= render @stories %>
 </div>
+
+<div id="stories-pagination"><%= paginate @stories %></div>

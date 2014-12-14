@@ -11,8 +11,9 @@
 		<% end %>
 	</div>
 	<% end %>
-	<div class="likes">
-	  <p>Likes: <%= story.score %></p>
-	  <p><%= link_to "upvote", like_story_path(story), method: :put %></p>
-	</div>	
+		<div class="story-<%=story.id%>">
+		  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
+		  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
+		</div>
+	</div>
 </div>
