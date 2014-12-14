@@ -48,12 +48,12 @@ gem 'acts-as-taggable-on'
 
 gem 'kaminari'
 
-
 group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
   gem 'quiet_assets'
   gem 'faker'
+  gem "letter_opener"
 end
 
 # Use ActiveModel has_secure_password
