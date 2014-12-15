@@ -3,16 +3,26 @@
 <%= form_for(@story, html: {multipart: true}) do |f| %>
 
 	<div class ="field">
-		<%= f.label :title %></br>
+		<%= f.label :title %><br/>
 		<%= f.text_field :title %>
 	</div>
 
-	<ul id="myTags">
-		<div>
-			<%= f.label :tags, "Tags (separated by commas):" %>
-			<%= f.text_field :tag_list %>
-		</div>
-	</ul>
+<!-- this id is because of nathans jquery thing -->
+	<div id="myTags">
+		<%= f.label :tags, "Tags (separated by commas):" %><br />
+		<%= f.text_field :tag_list %>
+	</div>
+
+	<p><button type='button' onclick="getLocation()">Show my location</button></p>
+
+	<div id="demo"></div>
+
+
+	<div class ='field'>
+		<%= f.hidden_field :story_latitude, :value => "" %>
+		<%= f.hidden_field :story_longditude, :value => "" %>
+	</div>
+
 
 	<p> Illustrate your story: </p>
 	<div class="pages">
@@ -20,10 +30,11 @@
 		<%= render 'page_fields', :f => p %>
 	<% end %>
 
-		<%= link_to_add_association "Add page!", f, :pages %>
+	<%= link_to_add_association "Add page!", f, :pages %>
 
 	<div class="action">
 		<%= f.submit %>
 	</div>
 
 <% end %>
+
