@@ -53,7 +53,9 @@ group :development, :test do
   gem 'awesome_print'
   gem 'quiet_assets'
   gem 'faker'
-  gem "letter_opener"
+  gem 'letter_opener'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Use ActiveModel has_secure_password

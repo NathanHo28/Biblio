@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   # before_filter :require_login, except: [:index, :show]
 
   def index
-    @stories = if params[:story_fields]
+    @stories = if params[:story]
       results = search
     else
       Story.order('stories.created_at DESC')
@@ -17,23 +17,27 @@ class StoriesController < ApplicationController
     #   Story.order('stories.created_at DESC')
     # end.page(params[:page])
 
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def search
-    search_params
-    sanity_check = search_params.delete_if {|category, value| value.blank?}
+    #call private method below
+    story_params
+    #if field is blank(whitespace or empty) this strips it from the search params
+    sanity_check = story_params.delete_if {|category, value| value.blank?}
     inquiry = Story.all 
+    #sanity_check represents search filters now
     sanity_check.each do |key, column|
 
-      if key == "title"
+      case key
+      when "title"
         inquiry = inquiry.where(["#{key} iLIKE ?", "%#{column}%"])
-      end
 
-      if key == "tag_list"
+      when "tag_list"
+        #did not put % around column as tags must match exactly
         inquiry = inquiry.tagged_with("#{column}", :any => true)
       end
     end
@@ -100,9 +104,5 @@ class StoriesController < ApplicationController
   private
   def story_params
     params.require(:story).permit(:title, :tag_list, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
-  end
-
-  def search_params
-    params.require(:story_fields).permit(:title, :tag_list)
   end
 end
