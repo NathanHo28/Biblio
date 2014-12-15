@@ -8,7 +8,16 @@ class Story < ActiveRecord::Base
 	acts_as_taggable_on :tags
 	acts_as_votable
 
+	validate :page_limit
+
 	def score
 		self.get_upvotes.size
+	end
+
+	def page_limit
+		@story.pages.page_number = @story.pages.length
+		if :page_number > 20
+			redirect_to :back, notice: "Too many pages!"
+		end	
 	end
 end

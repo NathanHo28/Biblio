@@ -1,11 +1,15 @@
 <div class="nested-fields">
 	<div>
-	    <%= f.label :page_photo %>
+	    <%= f.label :page_photo, "Page" %><br/>
 	    <%= f.file_field :page_photo %>
 	<div>
 	<div class='field'>
 		<%= f.label :caption %> <br>
 		<%= f.text_field :caption %>
+	</div>
+	<div id="remove_page">
+		<%= f.check_box :_destroy %>
+		<%= f.label :_destroy, "Remove Page" %>
 	</div>
 	<div>
 		<%= f.hidden_field :story_id, :value => @story.id %>
