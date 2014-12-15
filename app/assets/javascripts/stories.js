@@ -9,7 +9,7 @@ $(document).on('ready page:load', function () {
   	$.getScript('/stories?search=' + searchValue);
   });
   $('button').click(function() {
-    $("#likers").toggle();
+    $("#likers").toggle("medium");
   });
    if ($('.pagination').length) {
     $(window).scroll(function() {

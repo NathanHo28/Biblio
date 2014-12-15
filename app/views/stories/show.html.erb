@@ -15,10 +15,9 @@
 	<% end %>
 </div>
 <div class="story-<%=@story.id%>">
-  <p>Likes: <span class="score-<%=@story.id%>"><%= @story.score %></span></p>
   <p><%= link_to "Like", like_story_path(@story), method: :put, remote: true %></p>
+  <button>Likes: <span class="score-<%=@story.id%>"><%= @story.score %></span></button>
 </div>
-<button>View Likes</button>
 <div id="likers" style="display: none">
 	<h2><strong><u>Likers</u><strong></h2>
 	<% @story.votes_for.voters.each do |voter| %>
