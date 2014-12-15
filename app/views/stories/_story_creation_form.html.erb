@@ -7,7 +7,10 @@
 		<%= f.text_field :title %>
 	</div>
 
-
+	<div class ="field">
+		<%= f.label :city %><br/>
+		<%= f.text_field :city %>
+	</div>
 
 <!-- this id is because of nathans jquery thing -->
 	<div id="myTags">
@@ -15,21 +18,15 @@
 		<%= f.text_field :tag_list %>
 	</div>
 
+
 	<p><button type='button' onclick="getLocation()">Add my location to this story!</button></p>
 
 	<div id="location_coordinates"></div>
-
 
 	<div class='field'>
 		<%= f.hidden_field :latitude, :value => "" %>
 		<%= f.hidden_field :longitude, :value => "" %>
 	</div>
-
-	<div class ="field">
-		<%= f.label :city %><br/>
-		<%= f.text_field :city %>
-	</div>
-
 
 
 	<p> Illustrate your story: </p>
