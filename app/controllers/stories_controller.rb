@@ -26,7 +26,7 @@ class StoriesController < ApplicationController
   def search
     search_params
     sanity_check = search_params.delete_if {|category, value| value.blank?}
-    inquiry = Story.all 
+    inquiry = Story.all
     sanity_check.each do |key, column|
 
       if key == "title"
@@ -37,7 +37,7 @@ class StoriesController < ApplicationController
         inquiry = inquiry.tagged_with("#{column}", :any => true)
       end
     end
-    
+
     inquiry
   end
 
