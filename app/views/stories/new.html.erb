@@ -16,7 +16,8 @@
 
 
 var x = document.getElementById("demo");
-var y = document.getElementById('')
+var current_long = document.getElementById('story_story_latitude')
+var current_lat = document.getElementById('story_story_longitude')
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
