@@ -17,23 +17,27 @@ class StoriesController < ApplicationController
     #   Story.order('stories.created_at DESC')
     # end.page(params[:page])
 
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def search
+    #call private method below
     story_params
+    #if field is blank(whitespace or empty) this strips it from the search params
     sanity_check = story_params.delete_if {|category, value| value.blank?}
     inquiry = Story.all 
+    #sanity_check represents search filters now
     sanity_check.each do |key, column|
 
-      if key == "title"
+      case key
+      when "title"
         inquiry = inquiry.where(["#{key} iLIKE ?", "%#{column}%"])
-      end
 
-      if key == "tag_list"
+      when "tag_list"
+        #did not put % around column as tags must match exactly
         inquiry = inquiry.tagged_with("#{column}", :any => true)
       end
     end
