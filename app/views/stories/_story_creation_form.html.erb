@@ -13,15 +13,16 @@
 		<%= f.text_field :tag_list %>
 	</div>
 
-	<p><button type='button' onclick="getLocation()">Show my location</button></p>
+	<p><button type='button' onclick="getLocation()">Add my location to this story!</button></p>
 
 	<div id="demo"></div>
 
 
-	<div class ='field'>
-		<%= f.hidden_field :story_latitude, :value => "" %>
-		<%= f.hidden_field :story_longitude, :value => "" %>
+	<div class='field'>
+		<%= f.hidden_field :latitude, :value => "" %>
+		<%= f.hidden_field :longitude, :value => "" %>
 	</div>
+
 
 
 	<p> Illustrate your story: </p>
