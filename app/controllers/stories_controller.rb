@@ -72,9 +72,9 @@ class StoriesController < ApplicationController
   def tagged
     if params[:tag].present? 
       @stories = Story.tagged_with(params[:tag])
-    else 
+    else
       @stories = Story.all
-    end  
+    end
   end
 
   def show
@@ -104,6 +104,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :tag_list, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, :latitude, :longitude,  pages_attributes: [:page_photo, :caption, :page_number, :story_id])
   end
 end
