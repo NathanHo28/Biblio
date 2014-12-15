@@ -1,2 +1,29 @@
-<h1>Stories#edit</h1>
-<p>Find me in app/views/stories/edit.html.erb</p>
+<div class="story_show_page">
+	<%= render 'story_show' %>
+</div>
+
+<%= form_for(@story, html: {multipart: true}) do |f| %>
+
+	<div class ="field">
+		<%= f.label :title %></br>
+		<%= f.text_field :title %>
+	</div>
+
+	<ul id="myTags">
+		<div>
+			<%= f.label :tags, "Tags (separated by commas):" %>
+			<%= f.text_field :tag_list %>
+		</div>
+	</ul>
+
+	<p> Illustrate your story: </p>
+	<div class="pages">
+		<%= f.fields_for :pages do |p| %>
+		<%= render 'page_fields', :f => p %>
+	<% end %>
+	<div class="action">
+		<%= link_to_add_association "Add a page!", f, :pages %>
+		<%= f.submit %>
+	</div>
+
+<% end %>

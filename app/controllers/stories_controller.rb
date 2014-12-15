@@ -17,10 +17,10 @@ class StoriesController < ApplicationController
     #   Story.order('stories.created_at DESC')
     # end.page(params[:page])
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def search
@@ -28,7 +28,7 @@ class StoriesController < ApplicationController
     story_params
     #if field is blank(whitespace or empty) this strips it from the search params
     sanity_check = story_params.delete_if {|category, value| value.blank?}
-    inquiry = Story.all 
+    inquiry = Story.all
     #sanity_check represents search filters now
 
     sanity_check.each do |key, column|
@@ -70,7 +70,7 @@ class StoriesController < ApplicationController
   end
 
   def tagged
-    if params[:tag].present? 
+    if params[:tag].present?
       @stories = Story.tagged_with(params[:tag])
     else
       @stories = Story.all
@@ -100,10 +100,8 @@ class StoriesController < ApplicationController
     redirect_to stories_path, notice: "story has been removed"
   end
 
-
-
   private
   def story_params
-    params.require(:story).permit(:title, :tag_list, :latitude, :city, :longitude,  pages_attributes: [:page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, :latitude, :longitude, :city,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
   end
 end
