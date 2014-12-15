@@ -104,6 +104,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :tag_list, :latitude, :longitude,  pages_attributes: [:page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, :latitude, :city, :longitude,  pages_attributes: [:page_photo, :caption, :page_number, :story_id])
   end
 end
