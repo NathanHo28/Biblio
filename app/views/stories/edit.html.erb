@@ -21,10 +21,8 @@
 		<%= f.fields_for :pages do |p| %>
 		<%= render 'page_fields', :f => p %>
 	<% end %>
-
-		<%= link_to_add_association "Edit page!", f, :pages %>
-
 	<div class="action">
+		<%= link_to_add_association "Add a page!", f, :pages %>
 		<%= f.submit %>
 	</div>
 
