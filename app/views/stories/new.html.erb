@@ -16,8 +16,8 @@
 
 
 var x = document.getElementById("demo");
-var current_long = document.getElementById('story_story_latitude')
-var current_lat = document.getElementById('story_story_longitude')
+var current_long = document.getElementById('story_latitude')
+var current_lat = document.getElementById('story_longitude')
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -28,9 +28,9 @@ function getLocation() {
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude;
+    current_long.value = position.coords.longitude;
+    current_lat.value = position.coords.latitude;
 
-    // $("#story_story_latitude").value = position.coords.latitude;
-    // $("$story_story_longitude").value = position.coords.latitude;
 };
 
 </script>
