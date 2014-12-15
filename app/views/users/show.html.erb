@@ -6,6 +6,7 @@
 <p><%= @user.email %></p>
 <p><%= @user.home_town %></p>
 <p><%= @user.about_me %></p>
+
 <p><%= render 'follow_form' if logged_in? %></p>
 
 <section class="stats">
@@ -33,10 +34,4 @@
 	</div>
 	<%= link_to "Edit Story", edit_story_path(story) %>
 <% end %>
-
-<p><%= render 'follow_form' if logged_in? %></p>
-
-<section class="stats">
-	<%= render 'shared/stats' %>
-</section>
 
