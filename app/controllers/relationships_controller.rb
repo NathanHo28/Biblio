@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
 	def create
 		user = User.find(params[:followed_id])
 		current_user.follow(user)
-		#point unfollow and follow links to create destroy 
+		#point unfollow and follow links to create destroy
 		redirect_to user
 	end
 
