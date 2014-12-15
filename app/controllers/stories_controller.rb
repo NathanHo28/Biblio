@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   # before_filter :require_login, except: [:index, :show]
 
   def index
-    @stories = if params[:story_fields]
+    @stories = if params[:story]
       results = search
     else
       Story.order('stories.created_at DESC')
@@ -24,8 +24,8 @@ class StoriesController < ApplicationController
   end
 
   def search
-    search_params
-    sanity_check = search_params.delete_if {|category, value| value.blank?}
+    story_params
+    sanity_check = story_params.delete_if {|category, value| value.blank?}
     inquiry = Story.all 
     sanity_check.each do |key, column|
 
@@ -100,9 +100,5 @@ class StoriesController < ApplicationController
   private
   def story_params
     params.require(:story).permit(:title, :tag_list, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
-  end
-
-  def search_params
-    params.require(:story_fields).permit(:title, :tag_list)
   end
 end
