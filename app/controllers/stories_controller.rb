@@ -99,10 +99,8 @@ class StoriesController < ApplicationController
     redirect_to stories_path, notice: "story has been removed"
   end
 
-
-
   private
   def story_params
-    params.require(:story).permit(:title, :tag_list, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
   end
 end
