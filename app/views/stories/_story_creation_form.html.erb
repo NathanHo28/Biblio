@@ -3,16 +3,15 @@
 <%= form_for(@story, html: {multipart: true}) do |f| %>
 
 	<div class ="field">
-		<%= f.label :title %></br>
+		<%= f.label :title %><br/>
 		<%= f.text_field :title %>
 	</div>
 
-	<ul id="myTags">
-		<div>
-			<%= f.label :tags, "Tags (separated by commas):" %>
+	
+	<div id="myTags">
+			<%= f.label :tags, "Tags (separated by commas):" %><br />
 			<%= f.text_field :tag_list %>
 		</div>
-	</ul>
 
 	<p> Illustrate your story: </p>
 	<div class="pages">
