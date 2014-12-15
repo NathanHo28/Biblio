@@ -1,6 +1,7 @@
 <% if logged_in? %>
 	<h1>Tell us your story!</h1>
 	<%= render 'story_creation_form' %>
+
 	<%= link_to 'Return to all stories', stories_path %>
 <% else %>
 	<div class="not-logged-in">
@@ -10,34 +11,24 @@
 	</div>
 <% end %>
 
-<script type="javascript">
+<p><button type='button' onclick="getLocation()">Show my location</button></p>
+<div id="demo"></div>
 
-function geoFindMe() {
-  var output = document.getElementById("out");
 
-  if (!navigator.geolocation){
-    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-    return;
-  }
 
-  function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
+<script>
+var x = document.getElementById("demo");
 
-    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
 
-    var img = new Image();
-    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-
-    output.appendChild(img);
-  };
-
-  function error() {
-    output.innerHTML = "Unable to retrieve your location";
-  };
-
-  output.innerHTML = "<p>Locating…</p>";
-
-  navigator.geolocation.getCurrentPosition(success, error);
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
 }
 </script>
