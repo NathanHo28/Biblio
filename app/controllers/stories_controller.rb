@@ -30,6 +30,7 @@ class StoriesController < ApplicationController
     sanity_check = story_params.delete_if {|category, value| value.blank?}
     inquiry = Story.all 
     #sanity_check represents search filters now
+
     sanity_check.each do |key, column|
 
       case key
@@ -41,7 +42,7 @@ class StoriesController < ApplicationController
         inquiry = inquiry.tagged_with("#{column}", :any => true)
       end
     end
-    
+
     inquiry
   end
 

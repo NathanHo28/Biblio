@@ -1,6 +1,7 @@
 <% if logged_in? %>
 	<h1>Tell us your story!</h1>
 	<%= render 'story_creation_form' %>
+
 	<%= link_to 'Return to all stories', stories_path %>
 <% else %>
 	<div class="not-logged-in">
@@ -9,3 +10,24 @@
 	</p>
 	</div>
 <% end %>
+
+<script>
+
+
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+
+    // $("#story_story_latitude").value = position.coords.latitude;
+    // $("$story_story_longitude").value = position.coords.latitude;
+};
+
+</script>
