@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
   get 'tagged' => 'stories#tagged', :as => 'tagged'
 
+  get 'follow_user' => 'users#follow_user'
+  get 'unfollow_user' => 'users#unfollow_user'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

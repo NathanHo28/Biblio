@@ -6,6 +6,7 @@
 <p><%= @user.email %></p>
 <p><%= @user.home_town %></p>
 <p><%= @user.about_me %></p>
+
 <p><%= render 'follow_form' if logged_in? %></p>
 
 <section class="stats">
@@ -32,10 +33,4 @@
 		  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
 		</div>
 	<% end %>
-
-<p><%= render 'follow_form' if logged_in? %></p>
-
-<section class="stats">
-	<%= render 'shared/stats' %>
-</section>
 

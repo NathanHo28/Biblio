@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   								   dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed #explicitly tells rails that the source of the following arrays is the set of followed ids
   has_many :followers, through: :passive_relationships, source: :follower #source not needed but helps to illustrate structure
+  # validates_uniqueness_of :other_user, :scope => [:follower_id, :followed_id]
   validates :password, length: {minimum: 3}
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
@@ -26,11 +27,22 @@ class User < ActiveRecord::Base
 
   #fat model skinny controller
   #i expect we need to define other_user?
+
+  def destroy(other_user)
+    @relationship = user_id.followed_id.find(params[:id])
+    @relationship.destroy
+    flash[:notice] = "unfollowed"
+    redirect_to current_user
+    # active_relationships(followed_id: other_user)
+  end
+
   def follow(other_user)
+    # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
   	active_relationships.create(followed_id: other_user)
   end
 
   def unfollow(other_user)
+    # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
   	active_relationships.find_by(followed_id: other_user).destroy
   end
 

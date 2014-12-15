@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
 
   def new
   	@user = User.new
@@ -24,15 +25,26 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user  = User.find(params[:id])
-    @users = @user.following.all
+    @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.all
+    @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+
+  def follow_user
+    # binding.pry
+    current_user.follow(params[:user_id])
+    # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
+  end
+
+  def unfollow_user
+    current_user.unfollow(params[:user_id])
+    # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
   end
 
   # rails will implicitly render the template corresponding
