@@ -6,6 +6,7 @@ class RelationshipsController < ApplicationController
 		user = User.find(params[:followed_id])
 		current_user.follow(user)
 		# validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
+		#point unfollow and follow links to create destroy 
 		redirect_to user
 	end
 

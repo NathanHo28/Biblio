@@ -39,11 +39,15 @@ class UsersController < ApplicationController
   def follow_user
     # binding.pry
     current_user.follow(params[:user_id])
+    redirect_to user_path(params[:user_id]) #THIS IS WHAT WAS MISSING
     # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
+
+    #should be using if statements incase these fail 
   end
 
   def unfollow_user
     current_user.unfollow(params[:user_id])
+    redirect_to user_path(params[:user_id]) #THIS IS WHAT WAS MISSING
     # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
   end
 
