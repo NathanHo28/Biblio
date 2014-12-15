@@ -7,6 +7,8 @@
 		<%= f.text_field :title %>
 	</div>
 
+
+
 <!-- this id is because of nathans jquery thing -->
 	<div id="myTags">
 		<%= f.label :tags, "Tags (separated by commas):" %><br />
@@ -21,6 +23,11 @@
 	<div class='field'>
 		<%= f.hidden_field :latitude, :value => "" %>
 		<%= f.hidden_field :longitude, :value => "" %>
+	</div>
+
+	<div class ="field">
+		<%= f.label :location %><br/>
+		<%= f.text_field :location %>
 	</div>
 
 
