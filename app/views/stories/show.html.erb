@@ -1,28 +1,4 @@
-<h2><%= @story.title %></h2>
-<% @story.pages.each do |page| %>
-	<div class="clickable_image">
-		<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => @story.title, :title => page.caption %>
-	</div>
-<% end %>
-<div class="author_name">
-	<%= link_to @story.owner.username, user_path(@story.owner) %>
+<div class="story_show_page">
+	<%= render 'story_show' %>
 </div>
-<div class="tags">
-	Tags:
-	<% @story.tags.any? %>
-	<% @story.tags.each do |tag| %>
-	  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
-	<% end %>
-</div>
-<div class="story-<%=@story.id%>">
-  <p><%= link_to "Like", like_story_path(@story), method: :put, remote: true %></p>
-  <% if @story.score > 0 %>
-  <button>Likes: <span class="score-<%=@story.id%>"><%= @story.score %></span></button>
-</div>
-<div id="likers" style="display: none">
-	<h2><strong><u>Likers</u><strong></h2>
-	<% @story.votes_for.voters.each do |voter| %>
-		<p class="liker_names"> <%= link_to voter.username, user_path(voter) %> liked this!</p>
-	<% end  %>
-</div>
-<% end %>
+

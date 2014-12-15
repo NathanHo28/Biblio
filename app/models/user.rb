@@ -30,6 +30,15 @@ class User < ActiveRecord::Base
 
   #fat model skinny controller
   #i expect we need to define other_user?
+
+  # def destroy(other_user)
+  #   @relationship = user_id.followed_id.find(params[:id])
+  #   @relationship.destroy
+  #   flash[:notice] = "unfollowed"
+  #   redirect_to current_user
+  #   # active_relationships(followed_id: other_user)
+  # end
+
   def follow(other_user)
   	active_relationships.create(followed_id: other_user)
   end

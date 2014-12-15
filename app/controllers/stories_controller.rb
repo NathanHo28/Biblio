@@ -17,10 +17,10 @@ class StoriesController < ApplicationController
     #   Story.order('stories.created_at DESC')
     # end.page(params[:page])
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def search
@@ -100,10 +100,8 @@ class StoriesController < ApplicationController
     redirect_to stories_path, notice: "story has been removed"
   end
 
-
-
   private
   def story_params
-    params.require(:story).permit(:title, :tag_list, pages_attributes: [:page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, :latitude, :longitude,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
   end
 end
