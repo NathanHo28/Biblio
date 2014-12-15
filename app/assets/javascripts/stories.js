@@ -8,6 +8,9 @@ $(document).on('ready page:load', function () {
 
   	$.getScript('/stories?search=' + searchValue);
   });
+  $('button').click(function() {
+    $("#likers").toggle();
+  });
    if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination span.next').children().attr('href');
@@ -16,8 +19,11 @@ $(document).on('ready page:load', function () {
         return $.getScript(url);
       }
     });
-  }
+  };
 });
+
+
+
 
 // $(document).on('ready page:load', function() {
 //   if ($('.pagination').length) {
