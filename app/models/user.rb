@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :pages, through: :own_stories #said to change to just stories since it is implicitly always an own story
   has_many :own_stories, class_name: 'Story', foreign_key: 'owner_id'
+  #has_many :other_stories, through: :following, source: :stories --> use this relation to create the feed structure
   has_many :pins
   has_many :pinned_stories, through: :pins
   
