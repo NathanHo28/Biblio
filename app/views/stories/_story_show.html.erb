@@ -27,10 +27,26 @@
 	<% end  %>
 </div>
 
+<% end %>
+
 <div class="location-<%=@story.id%>">
-	<p>This story is located in <%=@story.city %>! </p>
-	<p>This story was created here:</p>
-	<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=@story.longitude%>,<%=@story.latitude%>&zoom=13&size=300x300&sensor=false&key=AIzaSyDbOWBVLGMzFWPviNHYf4f9HC7RBkfry4o" />
+
+	<% if @story.city? %>
+		<p>This story was created here:</p>
+
+		<% if ( @story.longitude? && @story.latitude? ) %>
+			<!-- google maps here w/ pin at location, centered at city, country -->
+		<% else %>
+			<!-- google maps here w/ pin at centre of city, country -->
+		<% end %>
+	<% elsif ( @story.longitude? && @story.latitude? ) %>
+		<!-- google maps w/ pin and centered at lat & long -->
+		<p>This story was created here:</p>
+		<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=@story.longitude%>,<%=@story.latitude%>&zoom=13&size=300x300&sensor=false&key=AIzaSyDbOWBVLGMzFWPviNHYf4f9HC7RBkfry4o" />
+	<% else %>
+		<p>This user didn't attach a location to their story but <%= link_to "you can!", new_story_path %></p>
+	<% end %>
 
 </div>
-<% end %>
+
+
