@@ -28,6 +28,6 @@ class Story < ActiveRecord::Base
 	# 	@story.pages.page_number = @story.pages.length
 	# 	if :page_number > 20
 	# 		redirect_to :back, notice: "Too many pages!"
-	# 	end	
+	# 	end
 	# end
 end
