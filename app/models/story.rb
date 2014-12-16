@@ -18,6 +18,10 @@ class Story < ActiveRecord::Base
 	# validate :page_limit
 
 	def address
+		[city, state, country].compact.join(', ')
+		#.compact removes all nil values, very cool 
+	end
+
 
 
 	def score
