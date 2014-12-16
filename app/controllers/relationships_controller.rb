@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
 	before_action :require_login
-	validates_uniqueness_of :follower_id, :followed_id
+	validates_uniqueness_of :followed_id
 
 	def create
 		user = User.find(params[:followed_id])

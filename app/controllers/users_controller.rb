@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   # validates_uniqueness_of :user_id, :scope => [:follower_id, :followed_id]
-
   def new
   	@user = User.new
   end
