@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20141215171935) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.decimal  "latitude",   default: 0.0, null: false
+    t.decimal  "longitude",  default: 0.0, null: false
     t.string   "city"
   end
 
