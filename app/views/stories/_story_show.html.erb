@@ -14,11 +14,7 @@
 	  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
 	<% end %>
 </div>
-<div class="location-<%=@story.id%>">
-	<p>This story was created here:</p>
-	<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=@story.longitude%>,<%=@story.latitude%>&zoom=13&size=300x300&sensor=false" />
 
-</div>
 <div class="story-<%=@story.id%>">
   <p><%= link_to "Like", like_story_path(@story), method: :put, remote: true %></p>
   <% if @story.score > 0 %>
@@ -29,5 +25,12 @@
 	<% @story.votes_for.voters.each do |voter| %>
 		<p class="liker_names"> <%= link_to voter.username, user_path(voter) %> liked this!</p>
 	<% end  %>
+</div>
+
+<div class="location-<%=@story.id%>">
+	<p>This story is located in <%=@story.city %>! </p>
+	<p>This story was created here:</p>
+	<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=@story.longitude%>,<%=@story.latitude%>&zoom=13&size=300x300&sensor=false" />
+
 </div>
 <% end %>
