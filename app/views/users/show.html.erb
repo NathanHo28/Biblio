@@ -7,7 +7,7 @@
 <p><%= @user.home_town %></p>
 <p><%= @user.about_me %></p>
 
-<p><%= render 'follow_form' if logged_in? %></p>
+
 
 <section class="stats">
 	<%= render 'shared/stats' %>
@@ -16,22 +16,24 @@
 <h3>My Stories: </h3>
 
 <% @user.own_stories.each do |story| %>
-	<p><%= story.title %></p>
-	<% story.pages.each do |page| %>
-	<div class="user_page">
-		<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
-	</div>
-	<% end %>
-	<div class="tags">
-		<% story.tags.any? %>
-		<% story.tags.each do |tag| %>
-		  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+	<div class="user_story">
+		<p><%= story.title %></p>
+		<% story.pages.each do |page| %>
+		<div class="user_page">
+			<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
+		</div>
 		<% end %>
+		<div class="tags">
+			<% story.tags.any? %>
+			<% story.tags.each do |tag| %>
+			  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+			<% end %>
+		</div>
+		<div class="story-<%=story.id%>">
+		  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
+		  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
+		</div>
+		<%= link_to "Edit Story", edit_story_path(story) %>
 	</div>
-	<div class="story-<%=story.id%>">
-	  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
-	  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
-	</div>
-	<%= link_to "Edit Story", edit_story_path(story) %>
 <% end %>
 
