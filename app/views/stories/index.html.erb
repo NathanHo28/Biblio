@@ -29,6 +29,11 @@
 			<%= f.label :tag_list, "Tags:" %>
 			<%= f.select :tag_list, tag_options %>
 		</div>
+		<div>
+			<% created_options = [['', ''], ['Newest', 'Newest'], ['Oldest', 'Oldest']] %>
+			<%= f.label :created_at, "Created date:" %>
+			<%= f.select :created_at, created_options %>
+		</div>
 	<% end %>
 <%= submit_tag "Search" %>
 <% end %>
