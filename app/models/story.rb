@@ -19,7 +19,7 @@ class Story < ActiveRecord::Base
 
 	def address
 		[city, state, country].compact.join(', ')
-		#.compact removes all nil values, very cool 
+		#.compact removes all nil values, very cool
 	end
 
 
