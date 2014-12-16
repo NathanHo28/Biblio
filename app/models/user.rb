@@ -42,9 +42,7 @@ class User < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
 
   def feed
-    @user = current_user
-    @user.following.map do |user|
-      user.own_stories
+    following.map{|user| user.own_stories}.flatten
   end
 
   # [16] pry(main)> m.following.map do |user|
