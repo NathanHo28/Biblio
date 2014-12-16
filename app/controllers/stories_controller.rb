@@ -37,9 +37,17 @@ class StoriesController < ApplicationController
       when "title"
         inquiry = inquiry.where(["#{key} iLIKE ?", "%#{column}%"])
 
+
       when "tag_list"
         #did not put % around column as tags must match exactly
         inquiry = inquiry.tagged_with("#{column}", :any => true)
+
+      when "created_at"
+        if column == "Oldest"
+          inquiry = inquiry.order('stories.created_at')
+        else
+          inquiry = inquiry.order('stories.created_at DESC')
+        end
       end
     end
 
@@ -102,6 +110,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :tag_list, :latitude, :longitude, :city,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :tag_list, :created_at, :latitude, :longitude, :city,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
   end
 end
