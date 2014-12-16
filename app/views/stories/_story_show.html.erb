@@ -27,10 +27,11 @@
 	<% end  %>
 </div>
 
+<% end %>
+
 <div class="location-<%=@story.id%>">
 	<p>This story is located in <%=@story.city %>! </p>
 	<p>This story was created here:</p>
 	<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=@story.longitude%>,<%=@story.latitude%>&zoom=13&size=300x300&sensor=false" />
 
 </div>
-<% end %>
