@@ -23,11 +23,21 @@
 		<%= f.hidden_field :longitude, :value => "" %>
 	</div>
 
-	<p> Alternatively, add a custom location to this story! Please enter in the form "city, country": </p>
+	<p> Alternatively, add a custom location to this story! </p>
 
-	<div class ="field">
+	<div class="field">
 		<%= f.label :city %><br/>
 		<%= f.text_field :city %>
+	</div>
+
+	<div class="field">
+		<%= f.label :state %><br />
+		<%= f.text_field :state %>
+	</div>
+
+	<div class="field">
+		<%= f.label :country %><br />
+		<%= f.text_field :country %>
 	</div>
 
 	<p> Illustrate your story: </p>
