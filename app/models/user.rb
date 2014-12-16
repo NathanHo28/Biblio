@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_voter
 
-  has_many :pages, through: :own_stories #said to change to just stories since it is implicitly always an own story
+  has_many :pages, through: :own_stories
   has_many :own_stories, class_name: 'Story', foreign_key: 'owner_id'
-  #has_many :other_stories, through: :following, source: :stories --> use this relation to create the feed structure
+  has_many :other_stories, through: :following, source: :own_stories # use this relation to create the feed structure
   has_many :pins
   has_many :pinned_stories, through: :pins
   
@@ -41,8 +41,15 @@ class User < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
-  # def feed
-  # end
+  def feed
+    @user = current_user
+    @user.following.map do |user|
+      user.own_stories
+  end
+
+  # [16] pry(main)> m.following.map do |user|
+  # [16] pry(main)*   user.own_stories
+  # [16] pry(main)* end
 
   #fat model skinny controller
   #i expect we need to define other_user?
