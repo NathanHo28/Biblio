@@ -29,9 +29,48 @@
 
 <% end %>
 
+<<<<<<< HEAD
+=======
+<script>
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    center: new google.maps.LatLng(<%=@story.latitude %>, <%=@story.longitude %>)
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+	console.log("Runnning initialize", "mapOptions", mapOptions, "map", map)
+  }
+
+
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+      'callback=initialize';
+  console.log("Loading remote script")
+  document.body.appendChild(script);
+}
+
+window.onload = loadScript;
+console.log("Running loadscript")
+
+</script>
+
+
+
+
 <div class="location-<%=@story.id%>">
-	<p>This story is located in <%=@story.city %>! </p>
-	<p>This story was created here:</p>
-	<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=@story.longitude%>,<%=@story.latitude%>&zoom=13&size=300x300&sensor=false" />
+
+	<% if @story.geocoded? %>
+
+
+        <div id="map-canvas"></div>
+
+
+	<% else %>
+		<p>This user didn't attach a location to their story but <%= link_to "you can!", new_story_path %></p>
+	<% end %>
 
 </div>

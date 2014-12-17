@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.0.0'
 #cocoon allows for nested forms
 gem 'cocoon'
 
+#geocoder for geocodinc solutions
+gem 'geocoder'
+
 # adds votes duh
 gem 'acts_as_votable', '~> 0.10.0'
 
