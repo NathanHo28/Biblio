@@ -29,11 +29,11 @@
 
 <% end %>
 
- <script>
+<script>
 function initialize() {
   var mapOptions = {
     zoom: 8,
-    center: new google.maps.LatLng(<%=@story.latitude%>, <%=@story.longitude %>)
+    center: new google.maps.LatLng(<%=@story.latitude %>, <%=@story.longitude %>)
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -50,7 +50,7 @@ function loadScript() {
 
 window.onload = loadScript;
 
-    </script>
+</script>
 
 
 
