@@ -9,6 +9,7 @@
 			<%= f.select :tag_list, options_from_collection_for_select(ActsAsTaggableOn::Tag.all, :id, :name) %>
 		</div>
 		<div class="field">
+			<%= f.label :cached_votes_score, "Most Popular" %>
 			<%= f.check_box :cached_votes_score %>
 		</div>
 	<% end %>
