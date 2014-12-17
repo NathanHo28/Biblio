@@ -36,6 +36,9 @@ class StoriesController < ApplicationController
         else
           inquiry = inquiry.order('stories.created_at DESC')
         end
+
+      when "cached_votes_score"
+        inquiry = inquiry.order('stories.cached_votes_score DESC')
       end
     end
 
@@ -98,6 +101,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :tag_list, :created_at, :latitude, :longitude, :city,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :cached_votes_score, :tag_list, :created_at, :latitude, :longitude, :city,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
   end
 end

@@ -2,12 +2,12 @@
 
 <%= form_tag stories_path, method: :get, authentication: false, id: 'search-form' do %>
 	<%= fields_for :story do |f| %>
-		<div id="search-title">
+		<div id="search-title" class="field">
 			<%= f.label :title, "Title:" %>
 			<%= f.text_field :title %>
 		</div>
 
-		<div>
+		<div class="field">
 			<% tag_options =
 				[
 					['',''],
@@ -29,10 +29,14 @@
 			<%= f.label :tag_list, "Tags:" %>
 			<%= f.select :tag_list, tag_options %>
 		</div>
-		<div>
+		<div class="field">
 			<% created_options = [['', ''], ['Newest', 'Newest'], ['Oldest', 'Oldest']] %>
 			<%= f.label :created_at, "Created date:" %>
 			<%= f.select :created_at, created_options %>
+		</div>
+		<div class="field">
+
+			<%= f.check_box :cached_votes_score %>
 		</div>
 	<% end %>
 <%= submit_tag "Search" %>

@@ -14,10 +14,14 @@ class Story < ActiveRecord::Base
 		self.get_upvotes.size
 	end
 
+	# def self.highest_voted
+	# 	self.order.flatten.reverse
+	# end
+
 	# def page_limit
 	# 	@story.pages.page_number = @story.pages.length
 	# 	if :page_number > 20
 	# 		redirect_to :back, notice: "Too many pages!"
-	# 	end	
+	# 	end
 	# end
 end
