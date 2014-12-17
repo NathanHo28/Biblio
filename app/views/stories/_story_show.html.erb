@@ -32,23 +32,27 @@
 <script>
 function initialize() {
   var mapOptions = {
-    zoom: 8,
+    zoom: 14,
     center: new google.maps.LatLng(<%=@story.latitude %>, <%=@story.longitude %>)
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-}
+	console.log("Runnning initialize", "mapOptions", mapOptions, "map", map)
+  }
+
 
 function loadScript() {
   var script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
       'callback=initialize';
+  console.log("Loading remote script")
   document.body.appendChild(script);
 }
 
 window.onload = loadScript;
+console.log("Running loadscript")
 
 </script>
 
