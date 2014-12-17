@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Biblio</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<meta charset="UTF-8">
+	  <title>Biblio</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag "vendor/modernizr" %>
+	  <%= csrf_meta_tags %>
 </head>
 <body>
 
 
-  <nav id="navbar">
+  <nav>
 	<% if current_user %> <!-- Do not need to define this with sorcery -->
-	<p><%= link_to "My Feed", root_url %> |
-		<%= link_to "Browse the world", stories_url %> |
-	Signed in as <%= link_to current_user.first_name, current_user %> |
-		<%= link_to "Logout", :logout, method: :get %> |
-		<%= link_to "New story", new_story_path %>
+	<div class="icon-bar five-up" role="navigation">
+		<%= link_to root_url, class: "item", role: "button", tabindex: "0" do %>
+			<i class="fi-home"></i>
+			<label>Home</label>
+		<% end %>
+		<%= link_to new_story_path, class: "item", role: "button", tabindex: "0" do %>
+			<i class="fi-book"></i>
+			<label>New Story</label>
+		<% end %>
+		<%= link_to user_path(current_user), class: "item", role: "button", tabindex: "0" do %>
+			<i class="fi-torso"></i>
+			<label><%= current_user.username %></label>
+		<% end %>
+		<%= link_to logout_path, class: "item", role: "button", tabindex: "0" do %>
+			<i class="fi-power"></i>
+			<label>Logout</label>
+		<% end %>
+		<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
+			<i class="fi-magnifying-glass"></i>
+			<label>Browse</label>
+		<% end %>
+
 	<% else %>
-		<%= link_to "Browse the world", stories_url %> |
-		<%= link_to "Register", new_user_path %> |
-		<%= link_to "Login", :login %>
-	<% end %></p>
+
+		<div class="icon-bar one-up" role="navigation">
+    	<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
+			<i class="fi-magnifying-glass"></i>
+			<label>Browse</label>
+		<% end %>
+
+	<% end %>
   </nav>
 
   <%= yield %>
