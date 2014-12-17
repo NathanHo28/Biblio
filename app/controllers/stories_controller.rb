@@ -4,50 +4,34 @@ class StoriesController < ApplicationController
   def index
     @stories = if params[:story]
       search
-    elsif logged_in? && current_user.following.any?
-      feed_items
     else
       Story.order('stories.created_at DESC')
     end.page(params[:page])
   end
 
   def feed_items
-    @stories = Story.all
-    Kaminari.paginate_array(current_user.feed)
+    @stories = Kaminari.paginate_array(current_user.feed)
   end
 
   def search
-    #call private method below
-    story_params
-    #if field is blank(whitespace or empty) this strips it from the search params
     sanity_check = story_params.delete_if {|category, value| value.blank?}
-    inquiry = Story.all
-    #sanity_check represents search filters now
-
     sanity_check.each do |key, column|
-
       case key
       when "title"
-        inquiry = inquiry.where(["#{key} iLIKE ?", "%#{column}%"])
-
-
+        @stories = Story.where(["#{key} iLIKE ?", "%#{column}%"])
       when "tag_list"
-        #did not put % around column as tags must match exactly
-        inquiry = inquiry.tagged_with("#{column}", :any => true)
-
+        @stories = Story.tagged_with("#{column}", :any => true)
       when "created_at"
         if column == "Oldest"
-          inquiry = inquiry.order('stories.created_at')
+          @stories = Story.order('stories.created_at')
         else
-          inquiry = inquiry.order('stories.created_at DESC')
+          @stories = Story.order('stories.created_at DESC')
         end
-
       when "cached_votes_score"
-        inquiry = inquiry.order('stories.cached_votes_score DESC')
+        @stories = Story.order('stories.cached_votes_score DESC')
       end
     end
-
-    inquiry
+    @stories
   end
 
   def new
