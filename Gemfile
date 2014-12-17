@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-#for logins an shit
+#for authentication
 gem 'sorcery'
 
 #for image display/upload/whatever
@@ -42,10 +42,11 @@ gem 'mini_magick'
 #for image box/popup display
 gem 'fancybox2-rails'
 
-
 #for tagging
 gem 'acts-as-taggable-on'
+gem "select2-rails"
 
+#for pagination
 gem 'kaminari'
 
 group :development, :test do
