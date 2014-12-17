@@ -5,10 +5,15 @@ class StoriesController < ApplicationController
     @stories = if params[:story]
       search
     elsif logged_in? && current_user.following.any?
-      Kaminari.paginate_array(current_user.feed)
+      feed_items
     else
       Story.order('stories.created_at DESC')
     end.page(params[:page])
+  end
+
+  def feed_items
+    @stories = Story.all
+    Kaminari.paginate_array(current_user.feed)
   end
 
   def search

@@ -1,0 +1,32 @@
+<%= form_tag stories_path, method: :get, authentication: false, id: 'search-form' do %>
+	<%= fields_for :story do |f| %>
+		<div id="search-title">
+			<%= f.label :title, "Title:" %>
+			<%= f.text_field :title %>
+		</div>
+		
+		<div>
+			<% tag_options = 
+				[
+					['',''],
+					['food','food'],
+					['money','money'],
+					['shoes','shoes'],
+					['hair','hair'],
+					['travel','travel'],
+					['desk','desk'],
+					['hat','hat'],
+					['goat','goat'],
+					['chair','chair'],
+					['cheese','cheese'],
+					['bacon','bacon'],
+					['linux','linux'],
+					['mint','mint'],
+					['bitmaker','bitmaker']
+				] %>
+			<%= f.label :tag_list, "Tags:" %>
+			<%= f.select :tag_list, tag_options %> 
+		</div>
+	<% end %>
+<%= submit_tag "Search" %>
+<% end %>
