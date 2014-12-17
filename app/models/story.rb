@@ -8,8 +8,6 @@ class Story < ActiveRecord::Base
 	after_validation :geocode          # auto-fetch coordinates
 
 	#not sure we need these
-	reverse_geocoded_by :latitude, :longitude
-	after_validation :reverse_geocode
 
 	accepts_nested_attributes_for :pages, :reject_if => :all_blank, :allow_destroy => true
 	acts_as_taggable_on :tags
