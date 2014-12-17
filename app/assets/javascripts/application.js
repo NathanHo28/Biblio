@@ -13,9 +13,12 @@
 //= require jquery
 //= require fancybox 
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require cocoon
 //= require_tree .
 
 
 
+
+$(function(){ $(document).foundation(); });
