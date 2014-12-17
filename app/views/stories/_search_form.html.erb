@@ -4,9 +4,9 @@
 			<%= f.label :title, "Title:" %>
 			<%= f.text_field :title %>
 		</div>
-		
+
 		<div>
-			<% tag_options = 
+			<% tag_options =
 				[
 					['',''],
 					['food','food'],
@@ -25,7 +25,10 @@
 					['bitmaker','bitmaker']
 				] %>
 			<%= f.label :tag_list, "Tags:" %>
-			<%= f.select :tag_list, tag_options %> 
+			<%= f.select :tag_list, tag_options %>
+		</div>
+		<div class="field">
+			<%= f.check_box :cached_votes_score %>
 		</div>
 	<% end %>
 <%= submit_tag "Search" %>
