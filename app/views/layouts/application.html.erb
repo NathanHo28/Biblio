@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav id="navbar">
 	<p><%= link_to "Home", stories_url %> |
 	<% if current_user %> <!-- Do not need to define this with sorcery -->
 	Signed in as <%= link_to current_user.first_name, current_user %> |
