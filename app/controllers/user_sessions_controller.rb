@@ -1,7 +1,7 @@
 class UserSessionsController < ApplicationController
   def new
   	if logged_in?
-  		redirect_to stories_path
+  		redirect_to feed_path
   	else
   		@user = User.new
   	end
