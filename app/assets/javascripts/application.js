@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require fancybox 
+//= require select2
 //= require jquery_ujs
-//= require turbolinks
 //= require cocoon
 //= require_tree .
 

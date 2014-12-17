@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require fancybox
+ *= require select2
  */
 
 #map-canvas {
@@ -20,4 +21,7 @@
 	width: 100%;
 }
 
+.select2-input {
+	width: 200px !important;
+}
 

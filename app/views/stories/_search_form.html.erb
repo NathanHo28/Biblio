@@ -6,7 +6,7 @@
 		</div>
 		<div>
 			<%= f.label :tag_list, "Tags:" %>
-			<%= f.select :tag_list, options_from_collection_for_select(ActsAsTaggableOn::Tag.all, :id, :name) %>
+			<%= f.select :tag_list, content_tag(:option,'select one...',:value=>"") + options_from_collection_for_select(ActsAsTaggableOn::Tag.all, :id, :name) %>
 		</div>
 		<div class="field">
 			<%= f.label :cached_votes_score, "Most Popular" %>
