@@ -5,7 +5,7 @@
 	<strong id="following-list">
 		<% @user.following.map do |user| %>
 		<ul>
-			<p><%= link_to user.username, user_path(user) %> | <%= user.first_name %> <%= user.last_name %></p>	
+			<p><%= image_tag user.photo_url(:thumb) %> <%= link_to user.username, user_path(user) %> | <%= user.first_name %> <%= user.last_name %></p>	
 		</ul>
 		<% end %>
 	</strong>
