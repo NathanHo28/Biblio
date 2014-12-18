@@ -39,10 +39,16 @@ tags = %w[food money shoes hair travel desk hat goat chair cheese bacon linux mi
 	owner_id = User.all.sample.id
 	s = Story.create!(
 	    :title => Faker::Name.title,
-	    :owner_id => owner_id
+	    :owner_id => owner_id,
+	    :city => "Anchorage",
+	    :state => "Arkansas",
+	    :country => "United States",
+
+	    #faker doesn't reliably generate adddresses that can be found on google maps
+
 	)
 	3.times do
-		s.tag_list.add(tags.sample) 
+		s.tag_list.add(tags.sample)
 	end
 	s.save
 
