@@ -14,21 +14,22 @@ class StoriesController < ApplicationController
   end
 
   def search
-    sanity_check = story_params.delete_if {|category, value| value.blank?}
+    sanity_check = story_params.delete_if {|category, value| value.blank? || value == 0}
+    @stories = []
     sanity_check.each do |key, column|
       case key
       when "title"
         @stories = Story.where(["#{key} iLIKE ?", "%#{column}%"])
       when "tag_list"
-        @stories = Story.tagged_with("#{column}", :any => true)
+        @stories = @stories.tagged_with("#{column}", :any => true)
       when "created_at"
         if column == "Oldest"
-          @stories = Story.order('stories.created_at')
+          @stories = @stories.order('stories.created_at')
         else
-          @stories = Story.order('stories.created_at DESC')
+          @stories = @stories.order('stories.created_at DESC')
         end
       when "cached_votes_score"
-        @stories = Story.order('stories.cached_votes_score DESC')
+          @stories = @stories.order('stories.cached_votes_score DESC')
       end
     end
     @stories
