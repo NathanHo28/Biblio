@@ -20,10 +20,12 @@
 	  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
 	</div>
 	<div class="user-relate">
+	<% unless logged_in? == false %>
 		<% if current_user.following?(user_id: story.owner) %>
-			<%= link_to "Unfollow", unfollow_user_path(user_id: story.owner), method: :get, remote: true %>
+			<%= link_to "Unfollow", unfollow_user_path(user_id: story.owner) %>
 		<% else %>
-			<%= link_to "Follow", follow_user_path(user_id: story.owner), method: :get, remote: true %>
+			<%= link_to "Follow", follow_user_path(user_id: story.owner) %>
 		<% end %>
+	<% end %>
 	</div>
 </div>
