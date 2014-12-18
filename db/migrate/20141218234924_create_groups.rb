@@ -3,7 +3,7 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
       t.integer :story_id
       t.integer :user_id
-      t.boolean :owner
+      t.integer :state
 
       t.timestamps
     end
