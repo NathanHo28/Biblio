@@ -25,14 +25,14 @@ class UsersController < ApplicationController
     @title = "Following"
     @user  = User.find(params[:id])
     current_user.following.map{|user| user.id}
-    render 'show_relationships'
+    render 'show_following'
   end
 
   def followers
     @title = "Followers"
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_relationships'
+    current_user.followers.map{|user| user.id}
+    render 'show_followers'
   end
 
   def follow_user

@@ -5,7 +5,7 @@
 
 		<a href="<%= following_user_path(@user) %>">
 		<strong id="following-list">
-			<%= @user.following.map{|user| user.id} %>
+			<%= @user.following.map{|user| user.username} %>
 		</strong>
 	</div>
 
