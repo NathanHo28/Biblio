@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217020638) do
+ActiveRecord::Schema.define(version: 20141218222429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: true do |t|
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.boolean  "owner"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", force: true do |t|
     t.string   "page_photo"
@@ -50,9 +58,9 @@ ActiveRecord::Schema.define(version: 20141217020638) do
     t.datetime "updated_at"
     t.decimal  "latitude",                default: 0.0, null: false
     t.decimal  "longitude",               default: 0.0, null: false
-    t.string   "city",                                  null: false
-    t.string   "state",                                 null: false
-    t.string   "country",                               null: false
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
     t.integer  "cached_votes_total",      default: 0
     t.integer  "cached_votes_score",      default: 0
     t.integer  "cached_votes_up",         default: 0
