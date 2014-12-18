@@ -1,3 +1,11 @@
+
+<% if current_user %>
+	<div='registration_error_message'>
+	<p>You can't create an account while you're logged in! Why not <%= link_to "create a story", new_story_path %> instead? </p>
+	</div>
+
+<% else %>
+
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
@@ -45,4 +53,5 @@
 	<%= f.submit "Submit"%>
 </div>
 
+<% end %>
 <% end %>
