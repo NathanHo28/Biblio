@@ -1,8 +1,14 @@
-	<div class="user-list">
-<!-- 		display all users either following or following -->
 
-		<a href="<%= following_user_path(@user) %>">
-		<strong id="following-list">
-			<%= @user.followers.map{|user| user.username} %>
-		</strong>
-	</div>
+<h3>Followers</h3>
+
+<div class="user-list">
+	<a href="<%= following_user_path(@user) %>">
+	<strong id="following-list">
+		<% @user.followers.map do |user| %>
+		<ul>
+			<%= link_to user.username, user_url(user) %>
+		</ul>
+		<% end %>
+	</strong>
+</div>
+	

@@ -1,14 +1,15 @@
-<% provide(:title, @title) %>
+<h3>Following</h3>
 
-	<div class="user-list">
-<!-- 		display all users either following or following -->
-
-		<a href="<%= following_user_path(@user) %>">
-		<strong id="following-list">
-			<%= @user.following.map{|user| user.username} %>
-		</strong>
-	</div>
-
+<div class="user-list">
+	<a href="<%= following_user_path(@user) %>">
+	<strong id="following-list">
+		<% @user.following.map do |user| %>
+		<ul>
+			<%= link_to user.username, user_path(user) %>
+		</ul>
+		<% end %>
+	</strong>
+</div>
 
 
 
