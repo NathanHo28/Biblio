@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'logout' => 'user_sessions#destroy', as: 'logout'
 
   get 'tagged' => 'stories#tagged', :as => 'tagged'
+  get 'stories/:id/like' => 'stories#upvote'
 
   get 'follow_user' => 'users#follow_user'
   get 'unfollow_user' => 'users#unfollow_user'
