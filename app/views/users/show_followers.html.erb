@@ -1,0 +1,13 @@
+<h3>Followers</h3>
+
+<div class="user-list">
+	<a href="<%= following_user_path(@user) %>">
+	<strong id="following-list">
+		<% @user.followers.map do |user| %>
+		<ul>
+			<p><%= image_tag user.photo_url(:thumb) %> <%= link_to user.username, user_url(user) %> | <%= user.first_name %> <%= user.last_name %> | <%= link_to "Follow", follow_user_path(user_id: user) %></p>
+		</ul>
+		<% end %>
+	</strong>
+</div>
+	

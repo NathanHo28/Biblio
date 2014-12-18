@@ -19,4 +19,11 @@
 	  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
 	  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
 	</div>
+		<div class="user-relate">
+			<% if current_user.following?(user_id: story.owner) %>
+				<%= link_to "Unfollow", unfollow_user_path(user_id: story.owner) %>
+			<% else %>
+				<%= link_to "Follow", follow_user_path(user_id: story.owner) %>
+			<% end %>
+	</div>
 </div>
