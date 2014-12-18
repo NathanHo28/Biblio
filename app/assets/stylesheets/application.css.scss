@@ -16,7 +16,7 @@
  *= require fancybox
  *= require select2
  */
-
+$(document).foundation();
 
  @import "foundation_and_overrides";
  @import "foundation-icons";
