@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
 
   def search
     sanity_check = story_params.delete_if {|category, value| value.blank? || value == 0}
-    @stories = []
+    @stories = Story.all
     sanity_check.each do |key, column|
       case key
       when "title"
