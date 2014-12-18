@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	  <title>Biblio</title>
 	  <%= stylesheet_link_tag    'application', media: 'all' %>
-	  <%= javascript_include_tag 'application' => true %>
+	  <%= javascript_include_tag 'application' %>
 	  <%= javascript_include_tag "vendor/modernizr" %>
 	  <%= csrf_meta_tags %>
 
@@ -31,17 +31,21 @@
 			<label>Logout</label>
 		<% end %>
 		<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
-			<i class="fi-magnifying-glass"></i>
+			<i class="fi-web"></i>
 			<label>Browse</label>
 		<% end %>
 
 	<% else %>
 
-		<div class="icon-bar one-up" role="navigation">
-    	<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
-			<i class="fi-magnifying-glass"></i>
-			<label>Browse</label>
-		<% end %>
+		<div class="icon-bar two-up" role="navigation">
+			<div class="large-12 columns"></div>
+			<div class="large-1 columns">
+		    	<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
+					<i class="fi-web"></i>
+					<label>Browse</label>
+				<% end %>
+			</div>
+		</div>
 
 	<% end %>
   </nav>

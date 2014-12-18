@@ -15,12 +15,10 @@
 //= require select2
 //= require jquery_ujs
 //= require foundation
-//= require foundation/app
-//= require turbolinks
 //= require cocoon
 //= require_tree .
 
 
 
 
-$(function(){ $(document).foundation(); });
+$(function() { $(document).foundation(); });
