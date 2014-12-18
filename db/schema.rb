@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20141217020638) do
 
   # These are extensions that must be enabled in order to support this database
@@ -51,9 +50,9 @@ ActiveRecord::Schema.define(version: 20141217020638) do
     t.datetime "updated_at"
     t.decimal  "latitude",                default: 0.0, null: false
     t.decimal  "longitude",               default: 0.0, null: false
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
+    t.string   "city",                                  null: false
+    t.string   "state",                                 null: false
+    t.string   "country",                               null: false
     t.integer  "cached_votes_total",      default: 0
     t.integer  "cached_votes_score",      default: 0
     t.integer  "cached_votes_up",         default: 0
