@@ -8,14 +8,10 @@
 		<%= f.label :title %></br>
 		<%= f.text_field :title %>
 	</div>
-
-	<ul id="myTags">
-		<div>
-			<%= f.label :tags, "Tags (separated by commas):" %>
-			<%= f.text_field :tag_list %>
-		</div>
-	</ul>
-
+	<div id="myTags">
+		<%= f.label :tags, "Tags (separated by commas):" %>
+		<%= f.text_field :tag_list %>
+	</div>
 	<p> Illustrate your story: </p>
 	<div class="pages">
 		<%= f.fields_for :pages do |p| %>
@@ -25,5 +21,10 @@
 		<%= link_to_add_association "Add a page!", f, :pages %>
 		<%= f.submit %>
 	</div>
-
 <% end %>
+
+<script>
+	$(document).on('ready page:load', function () {
+	  $('#story_tag_list').select2({tags:<%= raw(ActsAsTaggableOn::Tag.all.map(&:name)) %>})
+	});
+</script>

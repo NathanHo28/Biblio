@@ -12,9 +12,13 @@
 //
 //= require jquery
 //= require fancybox 
+//= require select2
 //= require jquery_ujs
+<<<<<<< HEAD
 //= require foundation
 //= require turbolinks
+=======
+>>>>>>> 930aec84ac05fd64cadfd1efe79d621a5fb69fe7
 //= require cocoon
 //= require_tree .
 

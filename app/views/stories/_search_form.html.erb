@@ -4,32 +4,18 @@
 			<%= f.label :title, "Title:" %>
 			<%= f.text_field :title %>
 		</div>
-
 		<div>
-			<% tag_options =
-				[
-					['',''],
-					['food','food'],
-					['money','money'],
-					['shoes','shoes'],
-					['hair','hair'],
-					['travel','travel'],
-					['desk','desk'],
-					['hat','hat'],
-					['goat','goat'],
-					['chair','chair'],
-					['cheese','cheese'],
-					['bacon','bacon'],
-					['linux','linux'],
-					['mint','mint'],
-					['bitmaker','bitmaker']
-				] %>
 			<%= f.label :tag_list, "Tags:" %>
-			<%= f.select :tag_list, tag_options %>
+			<%= f.select :tag_list, content_tag(:option,'select one...',:value=>"") + options_from_collection_for_select(ActsAsTaggableOn::Tag.all, :id, :name) %>
+		</div>
+		<div>
+			<% created_options = [['', ''], ['Newest', 'Newest'], ['Oldest', 'Oldest']] %>
+			<%= f.label :created_at, "Created date:" %>
+			<%= f.select :created_at, created_options %>
 		</div>
 		<div class="field">
 			<%= f.label :cached_votes_score, "Most Popular" %>
-			<%= f.check_box :cached_votes_score %>
+			<%= f.check_box :cached_votes_score, unchecked_value: '' %>
 		</div>
 	<% end %>
 <%= submit_tag "Search" %>
