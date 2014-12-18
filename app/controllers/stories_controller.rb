@@ -20,7 +20,8 @@ class StoriesController < ApplicationController
       when "title"
         @stories = Story.where(["#{key} iLIKE ?", "%#{column}%"])
       when "tag_list"
-        @stories = Story.tagged_with("#{column}", :any => true)
+        tag = ActsAsTaggableOn::Tag.find(column)  
+        @stories = Story.tagged_with(tag, :any => true)
       when "created_at"
         if column == "Oldest"
           @stories = Story.order('stories.created_at')
@@ -28,7 +29,9 @@ class StoriesController < ApplicationController
           @stories = Story.order('stories.created_at DESC')
         end
       when "cached_votes_score"
-        @stories = Story.order('stories.cached_votes_score DESC')
+        unless params[:cached_votes_score] == "0"
+          @stories = Story.order('stories.cached_votes_score DESC')
+        end
       end
     end
     @stories
