@@ -1,12 +1,25 @@
 <div class="row">
-	<p class="title"><%=link_to story.title, story_path(story) %></p>
 	<% story.pages.each do |page| %>
 		<div class="clickable_image">
 			<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
 		</div>
 	<% end %>
-	<div class="author_name">
-		<%= link_to story.owner.username, user_path(story.owner) %>
+	<div class="row">
+		<div class="author_name">
+			<%= link_to story.owner.username, user_path(story.owner) %>
+		<div class="user-relate">
+			<% unless logged_in? == false %>
+				<% if current_user.following?(story.owner) %>
+					<%= link_to "Unfollow", unfollow_user_path(story.owner) %>
+			<% else %>
+				<%= link_to "Follow", follow_user_path(user_id: story.owner) %>
+			<% end %>
+		<% end %>
+		</div>
+		</div>
+	</div>
+	<div>
+		<p><%=link_to story.title, story_path(story) %></p>
 	</div>
 	<div class="tags">
 		Tags:
@@ -16,16 +29,6 @@
 		<% end %>
 	</div>
 	<div class="story-<%=story.id%>">
-	  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
-	  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
-	</div>
-	<div class="user-relate">
-	<% unless logged_in? == false %>
-		<% if current_user.following?(story.owner) %>
-			<%= link_to "Unfollow", unfollow_user_path(story.owner) %>
-		<% else %>
-			<%= link_to "Follow", follow_user_path(user_id: story.owner) %>
-		<% end %>
-	<% end %>
+	  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span> | <%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
 	</div>
 </div>
