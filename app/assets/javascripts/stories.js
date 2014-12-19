@@ -1,6 +1,10 @@
 $(document).on('ready page:load', function () {
-  $('a.fancybox').fancybox({
-  	padding: 0
+  $('.fancybox').fancybox({
+    helpers: {
+      overlay: {
+        locked: false
+      }
+    }
   });
   $('search-form').submit(function(event) {
   	event.preventDefault();
