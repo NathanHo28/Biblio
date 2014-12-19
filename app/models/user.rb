@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_voter
 
+  enum status: { limited: 0, full: 1, professional: 2 }
+  
   has_many :pages, through: :own_stories
   has_many :own_stories, class_name: 'Story', foreign_key: 'owner_id'
   has_many :other_stories, through: :following, source: :own_stories # use this relation to create the feed structure
