@@ -8,7 +8,10 @@
 
 <p><%= @user.first_name %> <%= @user.last_name %></p>
 <p><%= @user.email %></p>
-<p><%= @user.home_town %></p>
+<p><%= @user.home_town %>, <%=@user.country %> </p>
+
+<div id='map-canvas'></div>
+
 <p><%= @user.about_me %></p>
 
 <p><%= render 'follow_form' if ( logged_in? && !(current_user == @user)) %></p>
@@ -16,6 +19,51 @@
 <section class="stats">
 	<%= render 'shared/stats' %>
 </section>
+
+
+
+<script>
+function initialize() {
+
+	var location = new google.maps.LatLng(<%=@user.latitude %>, <%=@user.longitude %>)
+	var mapOptions = {
+    	zoom: 14,
+  		center: location
+  		// this takes the location from above
+  		};
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+   var marker = new google.maps.Marker({
+      position: location,
+      map: map,
+      title: 'Hello World!'
+       });
+
+	console.log("Runnning initialize", "mapOptions", mapOptions, "map", map)
+  }
+
+
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+      'callback=initialize' + '&key=AIzaSyDbOWBVLGMzFWPviNHYf4f9HC7RBkfry4o';
+  console.log("Loading remote script")
+  document.body.appendChild(script);
+}
+
+window.onload = loadScript;
+console.log("Running loadscript")
+
+</script>
+
+
+
+
+
+
+
 
 <h3>My Stories: </h3>
 <div class="row">
