@@ -1,11 +1,10 @@
 <h1><%= current_user.first_name %>'s Feed</h1>
-
+<div class="main-panel">
 <% if current_user.following.any? %>
 
 	<% @stories.each do |story| %>
 		<div class="row">
 			<div class="story">
-				<p class="title"><%= link_to story.title, story_path(story) %></p>
 				<% story.pages.each do |page| %>
 					<div class="clickable_image">
 						<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
@@ -14,6 +13,9 @@
 				<div class="author_name">
 					<%= link_to story.owner.username, user_path(story.owner) %>
 				</div>
+				<div>
+					 <p><%= link_to story.title, story_path(story) %></p>
+				</div>				
 				<div class="tags">
 					Tags:
 					<% story.tags.any? %>
@@ -21,9 +23,9 @@
 					  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
 					<% end %>
 				</div>
+
 				<div class="story-<%=story.id%>">
-				  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
-				  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
+				  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span> | <%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
 				</div>
 			</div>
 		</div>
@@ -31,3 +33,4 @@
 <% else %>
 	<p> You need to follow people before we populate your feed with awesome stories! Why not <%= link_to "explore", stories_url %> </p> and find some stories you'll love!
 <% end %>
+</div>

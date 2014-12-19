@@ -7,9 +7,26 @@ body {
 	background-color: #FFFFFF;
 }
 
-.super-submit {
-	background-color: #ADC2D6;
-	max-height: 50px;
-	max-width: 200px;
+.submit {
+	margin: auto;
+	height: 100px;
+	width: 250px;
+	border-color: black;
 }
 
+.main-panel {
+	width: 950px;
+	margin: 0 auto;
+	background-color: #eef3ff;
+	border: 1px;
+	border-style: solid;
+	border-color: #435161;
+	border-radius: 7px;
+	padding: 30px;
+
+}
+
+
+.main-panel.author_name {
+	text-color: #13401D
+}
