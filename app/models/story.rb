@@ -5,7 +5,7 @@ class Story < ActiveRecord::Base
 	belongs_to :owner, class_name: 'User'
 
 	geocoded_by :address   # can also be an IP address
-	#after_validation :geocode          # auto-fetch coordinates
+	after_validation :geocode          # auto-fetch coordinates
 	#after_validation :geocode
 
 	#not sure we need these
