@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_voter
 
-  enum status: { limited: 0, full: 1, professional: 2 }
+  enum status:  [:limited, :full, :professional]
 
   has_many :pages, through: :own_stories
   has_many :own_stories, class_name: 'Story', foreign_key: 'owner_id'
@@ -20,6 +20,18 @@ class User < ActiveRecord::Base
 
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
   has_many :following, through: :relationships, source: :followed, class_name: "User" #1
+
+  def owner
+    User.where(state => :full)
+  end
+
+  def member
+    User.where(state => :limited)
+  end
+
+  def professional
+    User.where(state => :special)
+  end
 
   def followers
     Relationship.where(followed: self).includes(:follower).map(&:follower)
