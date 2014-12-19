@@ -32,13 +32,22 @@
 =======
 <script>
 function initialize() {
-  var mapOptions = {
-    zoom: 14,
-    center: new google.maps.LatLng(<%=@story.latitude %>, <%=@story.longitude %>)
-  };
+
+	var location = new google.maps.LatLng(<%=@story.latitude %>, <%=@story.longitude %>)
+	var mapOptions = {
+    	zoom: 14,
+  		center: location
+  		// this takes the location from above
+  		};
 
   var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
+   var marker = new google.maps.Marker({
+      position: location,
+      map: map,
+      title: 'Hello World!'
+       });
+
 	console.log("Runnning initialize", "mapOptions", mapOptions, "map", map)
   }
 
