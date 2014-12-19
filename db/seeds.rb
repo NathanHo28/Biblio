@@ -9,7 +9,7 @@
 User.destroy_all
 Story.destroy_all
 
-50.times do
+10.times do
 	user = User.create!(
 		:first_name => Faker::Name.first_name,
 		:last_name => Faker::Name.last_name,
@@ -21,6 +21,7 @@ Story.destroy_all
 		:photo => open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
 		#does this work?
 	)
+	sleep 1
 	print "|"
 end
 
@@ -47,6 +48,7 @@ tags = %w[food money shoes hair travel desk hat goat chair cheese bacon linux mi
 	    #faker doesn't reliably generate adddresses that can be found on google maps
 
 	)
+	sleep 1
 	3.times do
 		s.tag_list.add(tags.sample)
 	end
