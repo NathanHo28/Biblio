@@ -1,3 +1,5 @@
+
+
 <h1><%= @user.username %></h1>
 
 <p><%= image_tag @user.photo_url(:thumb) %></p>
@@ -5,6 +7,9 @@
 <p><%= @user.first_name %> <%= @user.last_name %></p>
 <!-- I removed email from this page for privacy reasons :P -->
 <p>From <%= @user.home_town %>, <%= @user.country %></p>
+
+<div class='map-canvas'></div>
+
 <p><%= @user.about_me %></p>
 
 <p><%= render 'follow_form' if logged_in? %></p>
