@@ -18,10 +18,12 @@ Story.destroy_all
 		:password => 'test',
 		:password_confirmation => 'test',
 		:about_me => Faker::Hacker.say_something_smart,
-		:photo => open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg'))
+		:photo => open(Rails.root.join('app', 'assets', 'images', 'avatar.jpg')),
+		:home_town => 'Toronto',
+		:country => 'Canada'
 		#does this work?
 	)
-
+	sleep 1
 	print "|"
 end
 
@@ -36,7 +38,7 @@ followers.each { |follower| follower.follow(user) }
 
 tags = %w[food money shoes hair travel desk hat goat chair cheese bacon linux mint bitmaker]
 
-50.times do
+20.times do
 	owner_id = User.all.sample.id
 	s = Story.create!(
 	    :title => Faker::Name.title,
@@ -48,6 +50,7 @@ tags = %w[food money shoes hair travel desk hat goat chair cheese bacon linux mi
 	    #faker doesn't reliably generate adddresses that can be found on google maps
 
 	)
+	sleep 1
 	3.times do
 		s.tag_list.add(tags.sample)
 	end

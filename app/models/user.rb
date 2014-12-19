@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   has_many :pinned_stories, through: :pins
 
   #geocoder shit here
-  #geocoded_by :address   # can also be an IP address
-  #after_validation :geocode
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode
   # has_many :active_relationships, class_name: "Relationship",
   # 								  foreign_key: "follower_id", #user following another user identified with different foreign key
   # 								  dependent: :destroy #destroying a user should also destroy a relationship

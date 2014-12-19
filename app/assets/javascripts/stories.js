@@ -25,7 +25,7 @@ $(document).on('ready page:load', function () {
     });
   };
   $('.toggle-search').click(function() {
-    $("#search").toggle("slow");
+    $("#search").toggle("medium");
   });
 });
 
