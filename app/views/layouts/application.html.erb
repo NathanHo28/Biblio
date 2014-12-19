@@ -37,9 +37,15 @@
 
 	<% else %>
 
-		<div class="icon-bar two-up" role="navigation">
-			<div class="large-12 columns"></div>
-			<div class="large-1 columns">
+		<div class="icon-bar three-up" role="navigation">
+				<%= link_to root_url, class: "item", role: "button", tabindex: "0" do %>
+					<i class="fi-power"></i>
+					<label>Login</label>
+				<% end %>
+				<%= link_to new_user_path, class: "item", role: "button", tabindex: "0" do %>
+					<i class="fi-plus"></i>
+					<label>Register</label>
+				<% end %>
 		    	<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
 					<i class="fi-web"></i>
 					<label>Browse</label>

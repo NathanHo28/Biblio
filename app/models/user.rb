@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
   has_many :other_stories, through: :following, source: :own_stories # use this relation to create the feed structure
   has_many :pins
   has_many :pinned_stories, through: :pins
-  
+
+  #geocoder shit here
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+
   # has_many :active_relationships, class_name: "Relationship",
   # 								  foreign_key: "follower_id", #user following another user identified with different foreign key
   # 								  dependent: :destroy #destroying a user should also destroy a relationship
@@ -21,6 +25,11 @@ class User < ActiveRecord::Base
 
   def followers
     Relationship.where(followed: self).includes(:follower).map(&:follower)
+  end
+
+  def address
+    [home_town, country].compact.join(', ')
+    #.compact removes all nil values, very cool
   end
 
   # instead of active and passive relationships there is just relationships
