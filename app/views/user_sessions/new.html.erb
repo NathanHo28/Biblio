@@ -1,4 +1,4 @@
-<h1>Login</h1>
+<%= image_tag("see saw logo.png", class: "logo") %>
 
 
 	<%= form_tag user_sessions_path, :method => :post, :id => "loginform" do %>
@@ -24,9 +24,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<div id="remember_me" class="small-3 small-centered columns">
-				<%= label_tag :remember_me %>
-				<%= check_box_tag :remember_me, type: "checkbox" %>
+			<div id="remember_me" class="small-6 small-centered columns">
+				 <%= check_box_tag :remember_me, type: "checkbox", id: "remember_me" %>
+				 <label for="remember_me">Remember Me<label>
 			</div>
 		</div>
 	<div class="row">
