@@ -91,6 +91,6 @@ class StoriesController < ApplicationController
 
   private
   def story_params
-    params.require(:story).permit(:title, :cached_votes_score, :tag_list, :created_at, :latitude, :longitude, :city,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
+    params.require(:story).permit(:title, :cached_votes_score, :tag_list, :created_at, :latitude, :longitude, :city, :state, :country,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
   end
 end
