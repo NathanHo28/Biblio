@@ -36,7 +36,7 @@ class PagePhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process :resize_and_crop => [200]
+    process :resize_and_crop => [296.8]
   end
 
   version :large do
@@ -54,7 +54,7 @@ class PagePhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  
+
   private
    def resize_and_crop(size)
       manipulate! do |image|
