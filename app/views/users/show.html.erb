@@ -17,29 +17,32 @@
 	<%= render 'shared/stats' %>
 </section>
 
-<h3>My Stories: </h3>
-
-<% @user.own_stories.each do |story| %>
-	<div class="user_story">
-		<p><%= link_to story.title, story_path(story) %></p>
-		<% story.pages.each do |page| %>
-		<div class="user_page">
-			<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
-		</div>
+<h3>My Stories: </h3> 
+	<% @user.own_stories.each do |story| %>
+		<% if @user.own_stories.any? || own_stories == "true" %>
+			<% link_to "We'd love to hear your story", new_story_path %>
+		<% else %>
+			<div class="user_story">
+				<p><%= link_to story.title, story_path(story) %></p>
+				<% story.pages.each do |page| %>
+				<div class="user_page">
+					<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
+				</div>
+				<% end %>
+				<div class="tags">
+					<% story.tags.any? %>
+					<% story.tags.each do |tag| %>
+					  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+					<% end %>
+				</div>
+				<div class="story-<%=story.id%>">
+				  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
+				  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
+				</div>
+				<% if current_user == story.owner %>
+					<%= link_to "Edit Story", edit_story_path(story) %>
+				<% end %>
+			</div>
 		<% end %>
-		<div class="tags">
-			<% story.tags.any? %>
-			<% story.tags.each do |tag| %>
-			  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
-			<% end %>
-		</div>
-		<div class="story-<%=story.id%>">
-		  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
-		  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
-		</div>
-		<% if current_user == story.owner %>
-			<%= link_to "Edit Story", edit_story_path(story) %>
-		<% end %>
-	</div>
-<% end %>
+	<% end %>
 
