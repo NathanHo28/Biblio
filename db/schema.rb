@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219013708) do
+ActiveRecord::Schema.define(version: 20141219194049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "groups", force: true do |t|
-    t.integer  "story_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "pages", force: true do |t|
     t.string   "page_photo"
@@ -55,11 +48,9 @@ ActiveRecord::Schema.define(version: 20141219013708) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "latitude",                default: 0.0, null: false
-    t.decimal  "longitude",               default: 0.0, null: false
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
+    t.string   "city",                                  null: false
+    t.string   "state",                                 null: false
+    t.string   "country",                               null: false
     t.integer  "cached_votes_total",      default: 0
     t.integer  "cached_votes_score",      default: 0
     t.integer  "cached_votes_up",         default: 0
@@ -67,6 +58,8 @@ ActiveRecord::Schema.define(version: 20141219013708) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
 
   add_index "stories", ["cached_votes_down"], name: "index_stories_on_cached_votes_down", using: :btree
@@ -114,7 +107,6 @@ ActiveRecord::Schema.define(version: 20141219013708) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
-    t.integer  "status",                          default: 0
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.string   "country"
