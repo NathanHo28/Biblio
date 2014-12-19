@@ -21,8 +21,8 @@
 	</div>
 	<div class="user-relate">
 	<% unless logged_in? == false %>
-		<% if current_user.following?(user_id: story.owner) %>
-			<%= link_to "Unfollow", unfollow_user_path(user_id: story.owner) %>
+		<% if current_user.following?(story.owner) %>
+			<%= link_to "Unfollow", unfollow_user_path(story.owner) %>
 		<% else %>
 			<%= link_to "Follow", follow_user_path(user_id: story.owner) %>
 		<% end %>

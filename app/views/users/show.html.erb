@@ -17,15 +17,14 @@
 	<%= render 'shared/stats' %>
 </section>
 
-<h3>My Stories: </h3>
-
+<h3>My Stories: </h3> 
 <% @user.own_stories.each do |story| %>
 	<div class="user_story">
 		<p><%= link_to story.title, story_path(story) %></p>
 		<% story.pages.each do |page| %>
-		<div class="user_page">
-			<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
-		</div>
+			<div class="user_page">
+				<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
+			</div>
 		<% end %>
 		<div class="tags">
 			<% story.tags.any? %>
@@ -38,8 +37,9 @@
 		  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
 		</div>
 		<% if current_user == story.owner %>
-			<%= link_to "Edit Story", edit_story_path(story) %>
+					<%= link_to "Edit Story", edit_story_path(story) %>
 		<% end %>
 	</div>
 <% end %>
+
 
