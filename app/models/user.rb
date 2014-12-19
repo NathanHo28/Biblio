@@ -2,7 +2,12 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_voter
 
-  enum status:  [:limited, :full, :professional]
+  enum status: [:limited, :full, :professional]
+
+  #this allows for multiple authority levels on what a user will be able to do
+  #state names cannot be the same as model methods. i will either be defining 
+  #member, owner, and sponsored in controller or model so, to be safe, I will
+  #use state names that reflect authority level
 
   has_many :pages, through: :own_stories
   has_many :own_stories, class_name: 'Story', foreign_key: 'owner_id'
@@ -21,16 +26,17 @@ class User < ActiveRecord::Base
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
   has_many :following, through: :relationships, source: :followed, class_name: "User" #1
 
-  def owner
-    User.where(state => :full)
+  #this will be used to define what type of user they are when contributing to a story
+  def leader
+    User.where("status <> ?", User.statuses[:full])
   end
 
   def member
-    User.where(state => :limited)
+    User.where("status <> ?", User.statuses[:limited])
   end
 
   def professional
-    User.where(state => :special)
+    User.where("status <> ?", User.statuses[:special])
   end
 
   def followers
