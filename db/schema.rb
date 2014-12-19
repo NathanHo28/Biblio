@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 20141219001134) do
     t.datetime "updated_at"
     t.decimal  "latitude",                default: 0.0, null: false
     t.decimal  "longitude",               default: 0.0, null: false
-    t.string   "city",                                  null: false
-    t.string   "state",                                 null: false
-    t.string   "country",                               null: false
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
     t.integer  "cached_votes_total",      default: 0
     t.integer  "cached_votes_score",      default: 0
     t.integer  "cached_votes_up",         default: 0
