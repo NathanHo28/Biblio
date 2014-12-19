@@ -33,9 +33,13 @@ class UsersController < ApplicationController
 
   def follow_user
     # binding.pry
-    current_user.follow(params[:user_id])
-    redirect_to user_path(params[:user_id]) #THIS IS WHAT WAS MISSING
+    relationship = current_user.follow(params[:user_id])
     #should be using if statements incase these fail 
+    respond_to do |format|
+      format.js { render text: relationship ? true : false }
+      format.html {redirect_to user_path(params[:user_id])
+}
+    end
   end
 
   def unfollow_user
