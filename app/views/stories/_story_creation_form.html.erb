@@ -1,13 +1,13 @@
 <%= form_for(@story, html: {multipart: true}) do |f| %>
 
 	<div class ="field">
-		<%= f.label :title %><br/>
-		<%= f.text_field :title %>
+		<%= f.label :title, class: "littletitle" %><br/>
+		<%= f.text_field :title, class: "inputfield" %>
 	</div>
 
 	<div id="myTags">
-		<%= f.label :tags, "Tags (separated by commas):" %><br />
-		<%= f.text_field :tag_list %>
+		<%= f.label :tags, "Tags (separated by commas):", class: "littletitle"  %><br />
+		<%= f.text_field :tag_list, class: "inputfield"  %>
 	</div>
 
 	<p><button type='button' onclick="getLocation()">Add my location to this story!</button></p>
@@ -23,18 +23,18 @@
 	<p> Alternatively, add a custom location to this story! </p>
 
 	<div class="field">
-		<%= f.label :city %><br/>
-		<%= f.text_field :city %>
+		<%= f.label :city, class: "littletitle"  %><br/>
+		<%= f.text_field :city, class: "inputfield"  %>
 	</div>
 
 	<div class="field">
-		<%= f.label :state %><br />
-		<%= f.text_field :state %>
+		<%= f.label :state, class: "littletitle"  %><br />
+		<%= f.text_field :state, class: "inputfield"  %>
 	</div>
 
 	<div class="field">
-		<%= f.label :country %><br />
-		<%= f.text_field :country %>
+		<%= f.label :country, class: "littletitle"  %><br />
+		<%= f.text_field :country, class: "inputfield"  %>
 	</div>
 
 	<p> Illustrate your story: </p>
