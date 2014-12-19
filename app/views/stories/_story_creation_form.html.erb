@@ -42,11 +42,11 @@
 		<%= f.fields_for :pages do |p| %>
 		<%= render 'page_fields', :f => p %>
 	<% end %>
-
-	<%= link_to_add_association "Add page!", f, :pages %>
+	<div>
 
 	<div class="action">
-		<%= f.submit %>
+		<%= link_to_add_association "Add Another Photo", f, :pages %> | <%= f.submit "Share Your Story" %>
+
 	</div>
 
 <% end %>
