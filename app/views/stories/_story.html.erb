@@ -24,7 +24,7 @@
 		<% if current_user.following?(user_id: story.owner) %>
 			<%= link_to "Unfollow", unfollow_user_path(user_id: story.owner) %>
 		<% else %>
-			<%= link_to "Follow", follow_user_path(user_id: story.owner) %>
+			<%= link_to "Follow", follow_user_path(user_id: story.owner), class: 'follow-link' %>
 		<% end %>
 	<% end %>
 	</div>
