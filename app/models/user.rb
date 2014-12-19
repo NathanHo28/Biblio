@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :other_stories, through: :following, source: :own_stories # use this relation to create the feed structure
   has_many :pins
   has_many :pinned_stories, through: :pins
-  
+
   # has_many :active_relationships, class_name: "Relationship",
   # 								  foreign_key: "follower_id", #user following another user identified with different foreign key
   # 								  dependent: :destroy #destroying a user should also destroy a relationship
