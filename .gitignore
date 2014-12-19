@@ -17,4 +17,8 @@
 
 /public/uploads
 
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> 96e1e8790448c9dca0614b320a4704630fd1631e
