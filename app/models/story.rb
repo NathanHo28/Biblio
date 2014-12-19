@@ -4,8 +4,8 @@ class Story < ActiveRecord::Base
 	has_many :pinned_bys, through: :pins, source: :user
 	belongs_to :owner, class_name: 'User'
 
-	geocoded_by :address   # can also be an IP address
-	after_validation :geocode          # auto-fetch coordinates
+	#geocoded_by :address   # can also be an IP address
+	#after_validation :geocode          # auto-fetch coordinates
 
 	#not sure we need these
 
