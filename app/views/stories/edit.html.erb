@@ -18,8 +18,8 @@
 		<%= render 'page_fields', :f => p %>
 	<% end %>
 	<div class="action">
-		<%= link_to_add_association "Add a page!", f, :pages %>
-		<%= f.submit, class: "super-submit" %>
+		<%= link_to_add_association "Add a page!", f, :pages, class: "submit" %>
+		<%= f.submit, class: "submit" %>
 	</div>
 <% end %>
 
