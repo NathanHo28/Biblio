@@ -14,3 +14,19 @@ body {
 	border-color: black;
 }
 
+.main-panel {
+	width: 950px;
+	margin: 0 auto;
+	background-color: #eef3ff;
+	border: 1px;
+	border-style: solid;
+	border-color: #435161;
+	border-radius: 7px;
+	padding: 30px;
+
+}
+
+
+.main-panel.author_name {
+	text-color: #13401D
+}
