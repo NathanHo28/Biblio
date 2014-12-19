@@ -61,10 +61,15 @@ gem 'foundation-rails'
 
 gem 'foundation-icons-sass-rails'
 
+gem "fog"
+
+gem "figaro"
+
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
-
+  
 group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'

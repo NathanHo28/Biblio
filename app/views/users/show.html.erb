@@ -11,13 +11,13 @@
 <p><%= @user.home_town %></p>
 <p><%= @user.about_me %></p>
 
-<p><%= render 'follow_form' if logged_in? %></p>
+<p><%= render 'follow_form' if ( logged_in? && !(current_user == @user)) %></p>
 
 <section class="stats">
 	<%= render 'shared/stats' %>
 </section>
 
-<h3>My Stories: </h3> 
+<h3>My Stories: </h3>
 <% @user.own_stories.each do |story| %>
 	<div class="user_story">
 		<p><%= link_to story.title, story_path(story) %></p>
