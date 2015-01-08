@@ -71,7 +71,7 @@ group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
-  
+
 group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
