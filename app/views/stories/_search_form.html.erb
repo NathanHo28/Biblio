@@ -1,22 +1,29 @@
 <%= form_tag stories_path, method: :get, authentication: false, id: 'search-form' do %>
-	<%= fields_for :story do |f| %>
-		<div id="search-title">
-			<%= f.label :title, "Title:" %>
-			<%= f.text_field :title %>
+	<fieldset>
+		<legend>Search</legend>
+		<%= fields_for :story do |f| %>
+		<div class="row">
+			<div id="search-title" class="large-12 columns">
+				<%= f.label :title, "Title:" %>
+				<%= f.text_field :title %>
+			</div>
 		</div>
-		<div>
-			<%= f.label :tag_list, "Tags:" %>
-			<%= f.select :tag_list, content_tag(:option,'select one...',:value=>"") + options_from_collection_for_select(ActsAsTaggableOn::Tag.all, :name, :name) %>
+		<div class="row">
+			<div class="large-4 columns">
+				<%= f.label :tag_list, "Tags:" %>
+				<%= f.select :tag_list, content_tag(:option,'select one...',:value=>"") + options_from_collection_for_select(ActsAsTaggableOn::Tag.all, :name, :name) %>
+			</div>
+			<div class="large-4 columns">
+				<% created_options = [['', ''], ['Newest', 'Newest'], ['Oldest', 'Oldest']] %>
+				<%= f.label :created_at, "Created date:" %>
+				<%= f.select :created_at, created_options %>
+			</div>
+			<div class="field large-4 columns">
+				<%= f.label :cached_votes_score, "Most Popular" %>
+				<%= f.check_box :cached_votes_score, unchecked_value: '' %>
+			</div>
 		</div>
-		<div>
-			<% created_options = [['', ''], ['Newest', 'Newest'], ['Oldest', 'Oldest']] %>
-			<%= f.label :created_at, "Created date:" %>
-			<%= f.select :created_at, created_options %>
-		</div>
-		<div class="field">
-			<%= f.label :cached_votes_score, "Most Popular" %>
-			<%= f.check_box :cached_votes_score, unchecked_value: '' %>
-		</div>
-	<% end %>
-<%= submit_tag "Search", class: "submit" %>
+		<% end %>
+		<%= submit_tag "Search", class: "button tiny round" %>
+	</fieldset>
 <% end %>
