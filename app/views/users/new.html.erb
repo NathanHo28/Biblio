@@ -10,49 +10,53 @@
 
 	<%= form_for @user do |f| %>
 
-		<div class="field">
+	<fieldset>
+		<legend>Register</legend>
+		<div class="small-centered large-12">
 			<%= f.label :first_name, class: "littletitle" %><br/>
 			<%= f.text_field :first_name, class: "inputfield" %>
 		</div>
 
-		<div class="field">
+		<div class="small-centered large-12">
 			<%= f.label :last_name, class: "littletitle" %><br/>
 			<%= f.text_field :last_name, class: "inputfield"  %>
 		</div>
 
-		<div class="field">
+		<div class="small-centered large-12">
 			<%= f.label :username, class: "littletitle" %><br/>
 			<%= f.text_field :username, class: "inputfield"  %>
 		</div>
 
-		<div class="field">
+		<div class="small-centered large-12">
 			<%= f.label :email, class: "littletitle" %><br/>
 			<%= f.text_field :email, class: "inputfield"  %>
 		</div>
 
-		<div class="field">
+		<div class="small-centered large-12">
 			<%= f.label :home_town, class: "littletitle" %><br/>
 			<%= f.text_field :home_town, class: "inputfield"  %>
 		</div>
-
-		<div class='field'>
+rr
+		<div class='small-centered large-12'>
 			<%= f.label :country, class: "littletitle" %><br/>
 			<%= f.text_field :country, class: "inputfield"  %>
 		</div>
 
-		<div class="field">
+		<div class="small-centered large-12">
 			<%= f.label :password, class: "littletitle" %><br/>
 			<%= f.password_field :password %>
 		</div>
 
-		<div class="field">
+		<div class="small-centered large-12">
 			<%= f.label :password_confirmation, class: "littletitle" %><br/>
 			<%= f.password_field :password_confirmation, class: "inputfield"  %>
 		</div>
 
-		<div class="field">
+		<div class="small-centered large-12">
 			<%= f.submit "Submit"%>
 		</div>
+	</fieldset>
+
 
 	<% end %>
 <% end %>
