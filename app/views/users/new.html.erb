@@ -14,32 +14,32 @@
 		<legend>Register</legend>
 		<div class="small-centered large-12">
 			<%= f.label :first_name, class: "littletitle" %><br/>
-			<%= f.text_field :first_name, class: "inputfield" %>
+			<%= f.text_field :first_name, class: "inputfield", placeholder: "What's your first name?" %>
 		</div>
 
 		<div class="small-centered large-12">
 			<%= f.label :last_name, class: "littletitle" %><br/>
-			<%= f.text_field :last_name, class: "inputfield"  %>
+			<%= f.text_field :last_name, class: "inputfield", placeholder: "What's your last name?"  %>
 		</div>
 
 		<div class="small-centered large-12">
 			<%= f.label :username, class: "littletitle" %><br/>
-			<%= f.text_field :username, class: "inputfield"  %>
+			<%= f.text_field :username, class: "inputfield", placeholder: "ie. Storyman123"  %>
 		</div>
 
 		<div class="small-centered large-12">
 			<%= f.label :email, class: "littletitle" %><br/>
-			<%= f.text_field :email, class: "inputfield"  %>
+			<%= f.text_field :email, class: "inputfield", placeholder: "abc@123.com"  %>
 		</div>
 
-		<div class="small-centered large-12">
-			<%= f.label :home_town, class: "littletitle" %><br/>
-			<%= f.text_field :home_town, class: "inputfield"  %>
-		</div>
-rr
 		<div class='small-centered large-12'>
 			<%= f.label :country, class: "littletitle" %><br/>
-			<%= f.text_field :country, class: "inputfield"  %>
+			<%= f.text_field :country, class: "inputfield", placeholder: "Where are you from?"  %>
+		</div>
+		
+		<div class="small-centered large-12">
+			<%= f.label :home_town, class: "littletitle" %><br/>
+			<%= f.text_field :home_town, class: "inputfield", placeholder: "Where are you really from?" %>
 		</div>
 
 		<div class="small-centered large-12">

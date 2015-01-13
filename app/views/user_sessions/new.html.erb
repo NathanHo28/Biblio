@@ -1,5 +1,5 @@
-<%= image_tag("see saw logo.png", class: "logo") %>
-
+<section class="login">
+	<%= image_tag("see saw logo.png", class: "logo") %>
 
 	<%= form_tag user_sessions_path, :method => :post, :id => "loginform" do %>
 		<div class="row">
@@ -36,4 +36,29 @@
 		</div>
 	</div>
 	<% end %>
+</section>
+
+	<section class="about-us">
+		<div class="about-content">
+			<div class="blurb">
+				<%= image_tag("about.png") %>
+				<h3>ABOUT US</h3>
+				<p class="about-descrip ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			</div>
+			<div class="icons">
+				<div class="about-icons">
+					<%= image_tag("story.png") %>
+					<p>create your own stories!</p>
+				</div>
+				<div class="about-icons">
+					<%= image_tag("group.png") %>
+					<p>Make stories with friends!</p>
+				</div>
+				<div class="about-icons">
+					<%= image_tag("map.png") %>
+					<p>Track where you've been!</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
