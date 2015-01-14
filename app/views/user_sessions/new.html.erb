@@ -8,7 +8,8 @@
 	<section class="login">
 		<%= link_to "Explore", stories_url, class: "browse" %>
 
-		<div id="credentials">
+		<div id="credentials" class="small-12 columns">
+			<%= image_tag("seesaw.png", class: "app-title", align: "middle") %>
 			<%= render 'login_form' %>
 		</div>
 
@@ -37,6 +38,8 @@
 			</div>
 		</div>
 	</section>
+
+
 
 	<section class="our-team">
 		<div class="team-content">
