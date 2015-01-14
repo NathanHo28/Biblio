@@ -4,9 +4,8 @@ class UserSessionsController < ApplicationController
   		redirect_to feed_path
   	else
   		@user = User.new
-  	end
-
-    render :layout => false
+      render :layout => false
+    end
   end
 
 # Flashes and notices dont work!
