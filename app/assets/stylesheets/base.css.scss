@@ -4,7 +4,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	background-color: #FFFFFF;
+	background: url("textured_paper.png");
 }
 
 .submit {
@@ -17,11 +17,17 @@ body {
 .login {
 	height: 500px;
 	padding: 40px;
-	background: url("login-background.jpg") no-repeat center center;
+	background: url("cityscape-resize.jpg") no-repeat center center;
+	position: relative;
+}
+
+#credentials {
+	padding-top: 100px;
 }
 
 .about-us {
 	overflow: auto;
+	background-color: white;
 }
 
 .blurb {
@@ -49,6 +55,25 @@ body {
 	text-align: center;
 }
 
+.team-content {
+	width: 90vw;
+	margin: auto;
+	padding: 50px 0px;
+	text-align: center;
+}
+
+.team-icons {
+	display: inline-block;
+	margin: 5vw;
+}
+
+.team-icons img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 4px solid white;
+}
+
 .main-panel {
 	width: 950px;
 	margin: 0 auto;
@@ -73,17 +98,22 @@ label {
 	text-color: #13401D
 }
 
+.icon-bar {
+	padding: 0px;
+}
+
 nav {
 	width: 100%;
 }
 
 section {
-	margin: 0;
+	margin: 10px 0px;
 }
 
 
 footer {
-	height: 40vh;
+	height: 10vh;
+	color: white;
 	width: 100vw;
-	background-color: gray;
+	background-color: black;
 }

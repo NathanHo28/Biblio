@@ -10,7 +10,6 @@
 
 </head>
 <body>
-
   <nav>
 	<% if current_user %> <!-- Do not need to define this with sorcery -->
 	<div class="icon-bar five-up" role="navigation">
@@ -58,10 +57,17 @@
 
   <%= yield %>
 
+  <section>
+  	<table>
+  		<tr>
+  			<td>Contact</td>
+  			<td>Privacy</td>
+  			<td>Careers</td>
+  		</tr>
+  	</table>
+  </section>
+
   <footer>
-  	<div>
-  		<h1>Footer</h1>
-  	</div>
   	<div>&copy; Bitmaker Booiiizzz</div>
   	<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.simpleicon.com" title="SimpleIcon">SimpleIcon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>         is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
   </footer>
