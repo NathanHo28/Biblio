@@ -5,6 +5,8 @@ class UserSessionsController < ApplicationController
   	else
   		@user = User.new
   	end
+
+    render :layout => false
   end
 
 # Flashes and notices dont work!

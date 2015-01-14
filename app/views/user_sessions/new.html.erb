@@ -1,57 +1,80 @@
-<section class="login">
-	
+<!DOCTYPE html>
+<html>
+<head>
+	<%= stylesheet_link_tag 'application', media: 'all' %>
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<section class="login">
+		<%= link_to "Explore", stories_url, class: "browse" %>
 
-	<div id="credentials">
-		<%= render 'login_form' %>
-	</div>
-
-</section>
-
-<section class="about-us">
-	<div class="about-content">
-		<div class="blurb">
-			<%= image_tag("about.png") %>
-			<h3>ABOUT US</h3>
-			<p class="about-descrip ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+		<div id="credentials">
+			<%= render 'login_form' %>
 		</div>
-		<div class="icons">
-			<div class="about-icons">
-				<%= image_tag("story.png") %>
-				<p>create your own stories!</p>
-			</div>
-			<div class="about-icons">
-				<%= image_tag("group.png") %>
-				<p>Make stories with friends!</p>
-			</div>
-			<div class="about-icons">
-				<%= image_tag("map.png") %>
-				<p>Track where you've been!</p>
-			</div>
-		</div>
-	</div>
-</section>
 
-<section class="our-team">
-	<div class="team-content">
-		<div class="blurb">
-			<%= image_tag("team.png") %>
-			<h3>THE TEAM</h3>
-			<p class="about-descrip ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-		</div>
-		<div class="icons">
-			<div class="team-icons">
-				<%= image_tag("nathan.jpg") %>
-				<p>Nathan 'NayNay' Ho</p>
+	</section>
+
+	<section class="about-us">
+		<div class="about-content">
+			<div class="blurb">
+				<%= image_tag("about.png") %>
+				<h3>ABOUT US</h3>
+				<p class="about-descrip ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 			</div>
-			<div class="team-icons">
-				<%= image_tag("merrick.jpg") %>
-				<p>Merrick 'The Eyepatch' Read</p>
-			</div>
-			<div class="team-icons">
-				<%= image_tag("jimi.jpg") %>
-				<p>Jimi 'I came for the food' Vyas</p>
+			<div class="icons">
+				<div class="about-icons">
+					<%= image_tag("story.png") %>
+					<p>create your own stories!</p>
+				</div>
+				<div class="about-icons">
+					<%= image_tag("group.png") %>
+					<p>Make stories with friends!</p>
+				</div>
+				<div class="about-icons">
+					<%= image_tag("map.png") %>
+					<p>Track where you've been!</p>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+
+	<section class="our-team">
+		<div class="team-content">
+			<div class="blurb">
+				<%= image_tag("team.png") %>
+				<h3>THE TEAM</h3>
+				<p class="about-descrip ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
+			</div>
+			<div class="icons">
+				<div class="team-icons">
+					<%= image_tag("nathan.jpg") %>
+					<p>Nathan 'NayNay' Ho</p>
+				</div>
+				<div class="team-icons">
+					<%= image_tag("merrick.jpg") %>
+					<p>Merrick 'The Eyepatch' Read</p>
+				</div>
+				<div class="team-icons">
+					<%= image_tag("jimi.jpg") %>
+					<p>Jimi 'I came for the food' Vyas</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+  	<table>
+  		<tr>
+  			<td>Contact</td>
+  			<td>Privacy</td>
+  			<td>Careers</td>
+  		</tr>
+  	</table>
+  </section>
+
+  <footer>
+  	<div>&copy; Bitmaker Booiiizzz</div>
+  </footer>
+</body>
+</html>
 

@@ -15,10 +15,23 @@ body {
 }
 
 .login {
-	height: 500px;
+	height: 100vh;
 	padding: 40px;
 	background: url("cityscape-resize.jpg") no-repeat center center;
 	position: relative;
+}
+
+.browse {
+	float: right;
+	font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
 }
 
 #credentials {
@@ -53,6 +66,11 @@ body {
 	margin: auto;
 	padding: 50px 0px;
 	text-align: center;
+}
+
+.our-team {
+	// background-color: #19191A;
+	background: url("mochaGrunge.png");
 }
 
 .team-content {
@@ -107,7 +125,7 @@ nav {
 }
 
 section {
-	margin: 10px 0px;
+	margin: 0px 0px 15px 0px;
 }
 
 
