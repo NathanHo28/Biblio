@@ -15,7 +15,6 @@ body {
 }
 
 .login {
-	height: 100vh;
 	padding: 40px;
 	background: url("cityscape-resize.jpg") no-repeat center center;
 	position: relative;
@@ -89,8 +88,6 @@ slideDown
 	}	
 }
 
-
-
 .browse {
 	float: right;
   display: block;
@@ -140,14 +137,22 @@ slideDown
 	display: block;
 	width: 70px;
 	margin: auto;
-	margin-top: 95px;
+	margin-top: 25vh;
 	bottom: 0;
 }
+
+.about-scroll-text {
+	display: block;
+	width: 90px;
+	margin: auto;
+	bottom: 0;
+	color: white;
+}
+
 
 .about-us {
 	overflow: auto;
 	background-color: white;
-	height: 100vh;
 }
 
 .blurb {
@@ -179,7 +184,14 @@ slideDown
 	display: block;
 	width: 70px;
 	margin: auto;
-	margin-top: 30px;
+	margin-top: 13vh;
+}
+
+.team-scroll-text {
+	display: block;
+	width: 90px;
+	margin: auto;
+	bottom: 0;
 }
 
 .our-team {
@@ -210,7 +222,13 @@ slideDown
 	display: block;
 	width: 70px;
 	margin: auto;
-	margin-bottom: 10px;
+}
+
+.login-scroll-text {
+	display: block;
+	width: 90px;
+	margin: auto;
+	color: white;
 }
 
 .main-panel {
