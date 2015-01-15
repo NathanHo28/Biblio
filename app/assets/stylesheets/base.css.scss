@@ -16,7 +16,7 @@ body {
 
 .login {
 	padding: 40px;
-	background: url("cityscape-resize.jpg") no-repeat center center;
+	background: url("background.jpg") no-repeat center center;
 	position: relative;
 	overflow: auto;
 }
@@ -273,4 +273,8 @@ footer {
 	color: white;
 	width: 100vw;
 	background-color: black;
+}
+
+footer div {
+	float: right;
 }
