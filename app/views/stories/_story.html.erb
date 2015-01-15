@@ -9,25 +9,29 @@
 			<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
 		</div>
 	<% end %>
-	<div class="row">
-		<div class="author_name">
-			By <%=link_to story.owner.username, user_path(story.owner) %>
-		</div>
+	<div class='row'>
 		<div>
-			<p><%=link_to story.title, story_path(story) %></p>
+			<%=link_to story.title, story_path(story) %>
 		</div>
-		<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-		<div class="user-relate">
-			<% unless logged_in? == false %>
+
+		<div class="row">
+			<% if logged_in? %>
 				<% if current_user.following?(story.owner) %>
-					<%= link_to "Unfollow", unfollow_user_path(story.owner) %>
-			<% else %>
-				<%= link_to "Follow", follow_user_path(user_id: story.owner) %>
+					By <%=link_to story.owner.username, user_path(story.owner) %> | <%= link_to "Unfollow", unfollow_user_path(story.owner) %>
+				<% else %>
+					By <%=link_to story.owner.username, user_path(story.owner) %> | <%= link_to "Follow", follow_user_path(user_id: story.owner) %>
+				<% end %>
 			<% end %>
-		<% end %>
+
+			 | <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+
+		<!-- twitter script -->
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 		</div>
+
 	</div>
+	
 	<div class="tags">
 		Tags:
 		<% story.tags.any? %>
