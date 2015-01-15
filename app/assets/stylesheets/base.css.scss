@@ -19,6 +19,7 @@ body {
 	padding: 40px;
 	background: url("cityscape-resize.jpg") no-repeat center center;
 	position: relative;
+	overflow: auto;
 }
 
 .app-title {
@@ -73,9 +74,18 @@ body {
 
 }
 
+.about-scroll {
+	display: block;
+	width: 70px;
+	margin: auto;
+	margin-top: 130px;
+	bottom: 0;
+}
+
 .about-us {
 	overflow: auto;
 	background-color: white;
+	height: 100vh;
 }
 
 .blurb {
@@ -99,19 +109,26 @@ body {
 .about-content {
 	width: 90vw;
 	margin: auto;
-	padding: 50px 0px;
+	padding: 50px 0px 0px 0px;
 	text-align: center;
+}
+
+.team-scroll {
+	display: block;
+	width: 70px;
+	margin: auto;
+	margin-top: 30px;
 }
 
 .our-team {
 	// background-color: #19191A;
 	background: url("mochaGrunge.png");
+	overflow: auto;
 }
 
 .team-content {
 	width: 90vw;
 	margin: auto;
-	padding: 50px 0px;
 	text-align: center;
 }
 
@@ -125,6 +142,13 @@ body {
 	height: 200px;
 	border-radius: 50%;
 	border: 4px solid white;
+}
+
+.login-scroll {
+	display: block;
+	width: 70px;
+	margin: auto;
+	margin-bottom: 10px;
 }
 
 .main-panel {

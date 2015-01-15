@@ -2,6 +2,7 @@
 <html>
 <head>
 	<%= stylesheet_link_tag 'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>
 	<link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -11,6 +12,9 @@
 		<div id="credentials" class="small-12 columns">
 			<%= image_tag("seesaw.png", class: "app-title", align: "middle") %>
 			<%= render 'login_form' %>
+		</div>
+		<div class="small-12 columns">
+			<%= image_tag("arrow.png", class: "about-scroll") %>
 		</div>
 
 	</section>
@@ -37,6 +41,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="small-12 columns">
+			<%= image_tag("arrow-black.png", class: "team-scroll") %>
+		</div>
 	</section>
 
 
@@ -62,6 +69,9 @@
 					<p>Jimi 'I came for the food' Vyas</p>
 				</div>
 			</div>
+		</div>
+		<div class="small-12 columns">
+			<%= image_tag("arrow.png", class: "login-scroll") %>
 		</div>
 	</section>
 
