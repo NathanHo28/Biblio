@@ -15,28 +15,140 @@ body {
 }
 
 .login {
-	height: 100vh;
 	padding: 40px;
 	background: url("cityscape-resize.jpg") no-repeat center center;
 	position: relative;
+	overflow: auto;
+}
+
+.app-title {
+	display: block;
+	width: 300px;
+	margin: auto;
+	margin-bottom: 25px;
+}
+
+/*
+==============================================
+slideDown
+==============================================
+*/
+.slideDown{
+	animation-name: slideDown;
+	-webkit-animation-name: slideDown;	
+
+	animation-duration: 1s;	
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;	
+
+	visibility: visible !important;						
+}
+
+@keyframes slideDown {
+	0% {
+		transform: translateY(-100%);
+	}
+	50%{
+		transform: translateY(8%);
+	}
+	65%{
+		transform: translateY(-4%);
+	}
+	80%{
+		transform: translateY(4%);
+	}
+	95%{
+		transform: translateY(-2%);
+	}			
+	100% {
+		transform: translateY(0%);
+	}		
+}
+
+@-webkit-keyframes slideDown {
+	0% {
+		-webkit-transform: translateY(-100%);
+	}
+	50%{
+		-webkit-transform: translateY(8%);
+	}
+	65%{
+		-webkit-transform: translateY(-4%);
+	}
+	80%{
+		-webkit-transform: translateY(4%);
+	}
+	95%{
+		-webkit-transform: translateY(-2%);
+	}			
+	100% {
+		-webkit-transform: translateY(0%);
+	}	
 }
 
 .browse {
 	float: right;
-	font: bold 11px Arial;
-  text-decoration: none;
-  background-color: #EEEEEE;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
+  display: block;
+  height: 50px;
+  width: 150px;
+  background: #043D8B;
+  border: 2px solid ;
+  margin-left: 20px;
+  /*text styles*/
+  color: rgba(0, 0, 0, 0.55);
+  text-align: center;
+  font: bold 1.6em/50px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+   
+  background: -webkit-linear-gradient(top, #043D8B, #022E6B);
+  background: -moz-linear-gradient(top, #043D8B, #022E6B);
+  background: -o-linear-gradient(top, #043D8B, #022E6B);
+  background: -ms-linear-gradient(top, #043D8B, #022E6B);
+  background: linear-gradient(top, #043D8B, #022E6B);
+   
+  -webkit-border-radius: 50px;
+  -khtml-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+   
+  // -webkit-box-shadow: 0 8px 0 #1b383b;
+  // -moz-box-shadow: 0 8px 0 #1b383b;
+  // box-shadow: 0 8px 0 #1b383b;
+   
+  // text-shadow: 0 2px 2px rgba(255, 255, 255, 0.2);
 }
 
+// a.browse:hover {
+// 	background: #3d7a80;
+//   background: -webkit-linear-gradient(top, #3d7a80, #2f5f63);
+//   background: -moz-linear-gradient(top, #3d7a80, #2f5f63);
+//   background: -o-linear-gradient(top, #3d7a80, #2f5f63);
+//   background: -ms-linear-gradient(top, #3d7a80, #2f5f63);
+//   background: linear-gradient(top, #3d7a80, #2f5f63);
+// }
+
 #credentials {
-	padding-top: 100px;
+	padding-top: 30px;
+
 }
+
+.about-scroll {
+	display: block;
+	width: 70px;
+	margin: auto;
+	margin-top: 25vh;
+	bottom: 0;
+}
+
+.about-scroll-text {
+	display: block;
+	width: 90px;
+	margin: auto;
+	bottom: 0;
+	color: white;
+}
+
 
 .about-us {
 	overflow: auto;
@@ -64,19 +176,33 @@ body {
 .about-content {
 	width: 90vw;
 	margin: auto;
-	padding: 50px 0px;
+	padding: 50px 0px 0px 0px;
 	text-align: center;
+}
+
+.team-scroll {
+	display: block;
+	width: 70px;
+	margin: auto;
+	margin-top: 13vh;
+}
+
+.team-scroll-text {
+	display: block;
+	width: 90px;
+	margin: auto;
+	bottom: 0;
 }
 
 .our-team {
 	// background-color: #19191A;
 	background: url("mochaGrunge.png");
+	overflow: auto;
 }
 
 .team-content {
 	width: 90vw;
 	margin: auto;
-	padding: 50px 0px;
 	text-align: center;
 }
 
@@ -90,6 +216,19 @@ body {
 	height: 200px;
 	border-radius: 50%;
 	border: 4px solid white;
+}
+
+.login-scroll {
+	display: block;
+	width: 70px;
+	margin: auto;
+}
+
+.login-scroll-text {
+	display: block;
+	width: 90px;
+	margin: auto;
+	color: white;
 }
 
 .main-panel {
