@@ -19,6 +19,10 @@
 			<i class="fi-home"></i>
 			<label>Home</label>
 		<% end %>
+		<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
+			<i class="fi-web"></i>
+			<label>Browse</label>
+		<% end %>
 		<%= link_to new_story_path, class: "item", role: "button", tabindex: "0" do %>
 			<i class="fi-book"></i>
 			<label>New Story</label>
@@ -31,10 +35,7 @@
 			<i class="fi-power"></i>
 			<label>Logout</label>
 		<% end %>
-		<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
-			<i class="fi-web"></i>
-			<label>Browse</label>
-		<% end %>
+
 
 	<% else %>
 
