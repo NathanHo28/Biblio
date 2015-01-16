@@ -30,6 +30,8 @@ class StoriesController < ApplicationController
         end
       when "cached_votes_score"
           @stories = @stories.order('stories.cached_votes_score DESC')
+      when "city"
+        @stories = @stories.where(["#{key} iLIKE ?", "%#{column}%"])
       end
     end
     @stories

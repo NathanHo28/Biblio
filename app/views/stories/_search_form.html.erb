@@ -9,6 +9,12 @@
 			</div>
 		</div>
 		<div class="row">
+			<div id="search-city" class="large-12 columns">
+				<%= f.label :city, "City:" %>
+				<%= f.text_field :city %>
+			</div>
+		</div>
+		<div class="row">
 			<div class="large-4 columns">
 				<%= f.label :tag_list, "Tags:" %>
 				<%= f.select :tag_list, content_tag(:option,'select one...',:value=>"") + options_from_collection_for_select(ActsAsTaggableOn::Tag.all, :name, :name) %>
