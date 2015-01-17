@@ -8,12 +8,11 @@
 	  <%= javascript_include_tag "vendor/modernizr" %>
 	  <%= csrf_meta_tags %>
 	  <%= favicon_link_tag 'favicon.ico' %>
-
-
 </head>
+
 <body>
   <nav>
-	<% if current_user %> <!-- Do not need to define this with sorcery -->
+	<% if current_user %>
 	<div class="icon-bar five-up" role="navigation">
 		<%= link_to root_url, class: "item", role: "button", tabindex: "0" do %>
 			<i class="fi-home"></i>
@@ -35,7 +34,6 @@
 			<i class="fi-power"></i>
 			<label>Logout</label>
 		<% end %>
-
 
 	<% else %>
 

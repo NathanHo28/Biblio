@@ -9,11 +9,10 @@ $(document).on('ready page:load', function () {
   // 	$.ajax({
   // 		url: "follow_user",
   // 		dataType: "script",
-  // 		success: function(data) { 
+  // 		success: function(data) {
   // 			if (data === "true")
   // 			$(that).html("Unfollow")
   // 		}
   // 	});
   // });
 });
-

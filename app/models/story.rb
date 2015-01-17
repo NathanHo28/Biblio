@@ -22,7 +22,6 @@ class Story < ActiveRecord::Base
 	end
 
 
-
 	def score
 		self.get_upvotes.size
 	end

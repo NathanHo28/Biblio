@@ -75,11 +75,7 @@ console.log("Running loadscript")
 <div class="location-<%=@story.id%>">
 
 	<% if @story.geocoded? %>
-
-
         <div id="map-canvas"></div>
-
-
 	<% else %>
 		<p>This user didn't attach a location to their story but <%= link_to "you can!", new_story_path %></p>
 	<% end %>
