@@ -5,10 +5,10 @@
 	</div>
 <% end %>
 <div class="author_name">
-	<%= link_to @story.owner.username, user_path(@story.owner) %>
+	Composed by <%= link_to @story.owner.username, user_path(@story.owner) %>
 </div>
 <div class="tags">
-	Tags:
+  Tags:
 	<% @story.tags.any? %>
 	<% @story.tags.each do |tag| %>
 	  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
@@ -21,9 +21,9 @@
   <button>Likes: <span class="score-<%=@story.id%>"><%= @story.score %></span></button>
 </div>
 <div id="likers" style="display: none">
-	<h2><strong><u>Likers</u><strong></h2>
-	<% @story.votes_for.voters.each do |voter| %>
-		<p class="liker_names"> <%= link_to voter.username, user_path(voter) %> liked this!</p>
+  <h2><strong><u>Likers</u><strong></h2>
+  <% @story.votes_for.voters.each do |voter| %>
+	 <p class="liker_names"> <%= link_to voter.username, user_path(voter) %> liked this!</p>
 	<% end  %>
 </div>
 
