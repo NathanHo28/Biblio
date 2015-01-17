@@ -2,12 +2,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	  <title>See Saw</title>
-	  <%= stylesheet_link_tag    'application', media: 'all' %>
-	  <%= javascript_include_tag 'application' %>
-	  <%= javascript_include_tag "vendor/modernizr" %>
-	  <%= csrf_meta_tags %>
-	  <%= favicon_link_tag 'favicon.ico' %>
+	<title>See Saw</title>
+		<%= stylesheet_link_tag    'application', media: 'all' %>
+		<%= javascript_include_tag 'application' %>
+		<%= javascript_include_tag "vendor/modernizr" %>
+		<%= csrf_meta_tags %>
+		<%= favicon_link_tag 'favicon.ico' %>
 </head>
 
 <body>
@@ -38,26 +38,26 @@
 	<% else %>
 
 		<div class="icon-bar three-up" role="navigation">
-				<%= link_to root_url, class: "item", role: "button", tabindex: "0" do %>
-					<i class="fi-power"></i>
-					<label>Login</label>
-				<% end %>
-				<%= link_to new_user_path, class: "item", role: "button", tabindex: "0" do %>
-					<i class="fi-plus"></i>
-					<label>Register</label>
-				<% end %>
-		    	<%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
-					<i class="fi-web"></i>
-					<label>Browse</label>
-				<% end %>
-			</div>
+			<%= link_to root_url, class: "item", role: "button", tabindex: "0" do %>
+				<i class="fi-power"></i>
+				<label>Login</label>
+			<% end %>
+			<%= link_to new_user_path, class: "item", role: "button", tabindex: "0" do %>
+				<i class="fi-plus"></i>
+				<label>Register</label>
+			<% end %>
+		    <%= link_to stories_url, class: "item", role: "button", tabindex: "0" do %>
+				<i class="fi-web"></i>
+				<label>Browse</label>
+			<% end %>
 		</div>
+	</div>
 
-	<% end %>
-  </nav>
-
+		<% end %>
+  	</nav>
+<div class="main-panel">
   <%= yield %>
-
+</div>
   <section>
   	<table>
   		<tr>
