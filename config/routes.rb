@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  
+
   resources :password_resets, only: [:create, :edit, :update, :new]
   resources :pins, only: [:create, :show, :destroy]
   resources :user_sessions
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'follow_user' => 'users#follow_user'
   get 'unfollow_user' => 'users#unfollow_user'
 
-  get 'feed' => 'stories#feed_items' 
+  get 'feed' => 'stories#feed_items'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
