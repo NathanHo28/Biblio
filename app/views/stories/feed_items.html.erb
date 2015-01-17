@@ -1,5 +1,4 @@
 <h1><%= current_user.first_name %>'s Feed</h1>
-<div class="main-panel">
 <% if current_user.following.any? %>
 
 	<% @stories.each do |story| %>
@@ -33,4 +32,3 @@
 <% else %>
 	<p> You need to follow people before we populate your feed with awesome stories! Why not <%= link_to "explore", stories_url %> </p> and find some stories you'll love!
 <% end %>
-</div>
