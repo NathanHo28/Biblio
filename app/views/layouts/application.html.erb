@@ -25,6 +25,13 @@
 					<!-- Right Nav Section -->
 					<ul class="right">
 
+
+						<li id="new-story-button"><%= link_to 'New Story', new_story_path %></li>
+
+						<li id="browse" class="show-for-medium-up">
+							<%= link_to 'Browse', stories_path %>
+						</li>
+
 						<li class="has-dropdown">
 							<a href="#">
 								<% if current_user %>
@@ -37,12 +44,6 @@
 								<li><%= link_to 'My Feed', feed_path(current_user) %></li>
 								<li><%= link_to "Logout", logout_path, method: :get %></li>
 							</ul>
-						</li>
-
-						<li id="new-story-button"><%= link_to 'New Story', new_story_path %></li>	
-
-						<li id="browse" class="show-for-medium-up">
-							<%= link_to 'Browse', stories_path %>
 						</li>
 					</ul>
 				</section>
