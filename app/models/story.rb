@@ -2,8 +2,11 @@ class Story < ActiveRecord::Base
 	has_many :pages
 	has_many :pins
 	has_many :pinned_bys, through: :pins, source: :user
-	belongs_to :owner, class_name: 'User'
-	#has_many :contributors
+
+	belongs_to :owner, class_name: "User"
+	has_many :contributors, class_name: "User",
+							foreign_key: "owner_id" 
+
 
 	geocoded_by :address   # can also be an IP address
 	after_validation :geocode          # auto-fetch coordinates
