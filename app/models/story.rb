@@ -4,8 +4,12 @@ class Story < ActiveRecord::Base
 	has_many :pinned_bys, through: :pins, source: :user
 
 	belongs_to :owner, class_name: "User"
+
+	has_many :contributions, foreign_key: "contributor_id" 
+	
 	has_many :contributors, class_name: "User",
-							foreign_key: "owner_id" 
+							#foreign_key: "owner_id" 
+							through: :story_contributor
 
 
 	geocoded_by :address   # can also be an IP address
