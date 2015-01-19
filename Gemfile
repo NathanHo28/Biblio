@@ -67,6 +67,8 @@ gem "fog"
 
 gem "figaro"
 
+gem 'cancancan', '~> 1.10'
+
 group :production do
   gem 'rails_12factor'
   gem 'unicorn'
