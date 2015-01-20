@@ -268,8 +268,8 @@
 		<%= f.label :tags, "Tags (separated by commas):", class: "littletitle"  %><br />
 		<%= f.text_field :tag_list, class: "inputfield"  %>
 	</div>
-
-	<p><button type='button' onclick="getLocation()">Add my location to this story!</button></p>
+  <br>
+	<p><button type='button' onclick="getLocation()">Add A Location</button></p>
 
 	<div id="demo"></div>
 
@@ -280,7 +280,7 @@
 		<%= f.hidden_field :longitude, :value => "" %>
 	</div>
 
-	<p> Alternatively, add a custom location to this story! </p>
+	<p> Custom Location: </p>
 
 	<div class="field">
 		<%= f.label :city, class: "littletitle"  %><br/>
@@ -297,7 +297,6 @@
 		<%= f.select :country, rubized_counties  %>
 	</div>
 
-	<p> Illustrate your story: </p>
 	<div class="pages">
 		<%= f.fields_for :pages do |p| %>
 		<%= render 'page_fields', :f => p %>
@@ -305,9 +304,11 @@
 	<div>
 
 	<div class="action">
-		<%= link_to_add_association "Add Another Photo", f, :pages %> | <%= f.submit "Share Your Story" %>
-
+		<%= link_to_add_association "Add A Photo", f, :pages, class: "button" %> <%= link_to "Add A Story Contributor", following_user_path(current_user), class: "button" %>
 	</div>
+  <div class="action">
+    <%= f.submit "Share Your Story", class: "button" %>
+  </div>
 </fieldset>
 
 

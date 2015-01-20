@@ -16,10 +16,11 @@ class User < ActiveRecord::Base
   has_many :following, through: :relationships, source: :followed, class_name: "User" #1
 
   has_many :comments
-  has_many :stories, through: :reviews
+  has_many :stories, through: :comments
 
   has_many :pins
-  has_many :pinned_stories, through: :pins #._.
+  has_many :pinned_stories, through: :pins
+
 
   def followers
     Relationship.where(followed: self).includes(:follower).map(&:follower)

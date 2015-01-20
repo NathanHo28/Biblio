@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 	before_filter :load_story
+  before_filter :ensure_logged_in, only: [:create, :destroy]
+
 
   def show
   	@comment = Comment.find(params[:id])
