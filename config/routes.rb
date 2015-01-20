@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'comments/show'
+
+  get 'comments/create'
+
+  get 'comments/destroy'
+
   root 'user_sessions#new'
 
   resources :pages, except: [:index]
@@ -15,6 +21,7 @@ Rails.application.routes.draw do
   resources :user_sessions
   resources :stories do
     member do
+      resources :reviews, only: [:show, :create, :destroy]
       put "like", to: "stories#upvote"
     end
   end

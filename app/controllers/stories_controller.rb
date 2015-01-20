@@ -75,6 +75,8 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    if current_user
+      @comment = @comment.reviews.build
   end
 
   def edit
