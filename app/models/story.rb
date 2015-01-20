@@ -5,10 +5,13 @@ class Story < ActiveRecord::Base
 
 	belongs_to :owner, class_name: "User"
 
-	has_many :contributions, foreign_key: "contributor_id" 
-	
+	has_many :comments
+	has_many :users, through: :comments
+
+	has_many :contributions, foreign_key: "contributor_id"
+
 	has_many :contributors, class_name: "User",
-							#foreign_key: "owner_id" 
+							#foreign_key: "owner_id"
 							through: :story_contributor
 
 

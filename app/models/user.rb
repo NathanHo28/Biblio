@@ -15,11 +15,12 @@ class User < ActiveRecord::Base
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
   has_many :following, through: :relationships, source: :followed, class_name: "User" #1
 
-
+  has_many :comments
+  has_many :stories, through :reviews
 
   has_many :pins
-  has_many :pinned_stories, through: :pins
-  
+  has_many :pinned_stories, through: :pins #._.
+
   def followers
     Relationship.where(followed: self).includes(:follower).map(&:follower)
   end
