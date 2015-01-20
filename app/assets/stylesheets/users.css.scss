@@ -10,14 +10,28 @@
 	display: inline;
 }
 
-.user_story {
-	// display: inline-block;
-}
-
 .logo {
 	padding-left: 40%;
 }
 
 .row {
+	
+}
+
+.container {
+	overflow: auto;
+}
+
+.super-user {
+	border-radius: 50%;
+	border: 4px solid white;
+	margin: 20px 20px 20px 0;
+}
+
+.user-info {
+	background-color: white;
+	border: white;
+	border-radius: 4px;
+	width: 100%;
 	text-align: center;
 }
