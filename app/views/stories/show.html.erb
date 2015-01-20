@@ -1,3 +1,11 @@
 <div class="story_show_page">
 	<%= render 'story_show' %>
+
+	<% if current_user %>
+		<h3>Comments:</h3>
+		<% @story.comments.each do |comment| %>
+			<p><%=comment.user.username%>: <%=comment.passage%> </p>
+		<% end %>
+	<% end %>
+
 </div>
