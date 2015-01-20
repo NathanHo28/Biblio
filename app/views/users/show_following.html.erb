@@ -1,18 +1,20 @@
-<h3>Following</h3>
-
+<div class="row">
+	<div class="follow-title">
+		<h4>Following</h4>
+	</div>
+<div class="large-4 columns small-centered">
 <div class="user-list">
 	<a href="<%= following_user_path(@user) %>">
-	<strong id="following-list">
 		<% @user.following.map do |user| %>
 		<ul>
-				<%= user.first_name %> <%= user.last_name %>
 			<p>
-				<%= image_tag user.photo_url(:thumb) %> 
+				<%= image_tag user.photo_url(:thumb), class: "super-user" %> 
 				<%= link_to user.username, user_path(user), class: "button" %> <%= link_to "Unfollow", unfollow_user_path(user_id: user), class: "button" %>
 			</p>
 		</ul>
 		<% end %>
-	</strong>
+</div>
+</div>
 </div>
 
 

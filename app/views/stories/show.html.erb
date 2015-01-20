@@ -1,4 +1,12 @@
 <div class="story_show_page">
+
+<meta property="og:title" content="<%= @story.title %>" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="http://see-saw.herokuapp.com/favicon.ico" />
+<meta property="og:url" content="<% request.original_url %>" />
+<meta property="og:description" content="Check out this shared story!" />
+
+
 	<%= render 'story_show' %>
 
 
