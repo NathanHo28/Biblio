@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   	@comment = @story.comments.build(comment_params)
   	@comment.user = current_user
   	if @comment.save
-  		redirect_to stories_path, notice: 'comment posted'
+  		redirect_to @story, notice: 'comment posted'
   	else
   		render 'stories/show'
   	end
