@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'stories/:id/like' => 'stories#upvote'
 
   get 'follow_user' => 'users#follow_user'
+  get 'following_user' => 'users#following_user'
   get 'unfollow_user' => 'users#unfollow_user'
 
   get 'feed' => 'stories#feed_items'

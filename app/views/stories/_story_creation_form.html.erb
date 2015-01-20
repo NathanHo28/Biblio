@@ -268,7 +268,7 @@
 		<%= f.label :tags, "Tags (separated by commas):", class: "littletitle"  %><br />
 		<%= f.text_field :tag_list, class: "inputfield"  %>
 	</div>
-
+  <br>
 	<p><button type='button' onclick="getLocation()">Add my location to this story!</button></p>
 
 	<div id="demo"></div>
@@ -304,8 +304,11 @@
 	<div>
 
 	<div class="action">
-		<%= link_to_add_association "Add A Photo", f, :pages, class: "button" %> <%= f.submit "Share Your Story", class: "button" %> <%= link_to "Add A Friend", class: "button" %>
+		<%= link_to_add_association "Add A Photo", f, :pages, class: "button" %> <%= link_to "Add A Story Contributor", following_user_path(current_user), class: "button" %>
 	</div>
+  <div class="action">
+    <%= f.submit "Share Your Story", class: "button" %>
+  </div>
 </fieldset>
 
 
