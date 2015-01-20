@@ -277,7 +277,6 @@ max-width: none;
 	text-align: center;
 }
 
-
 .title {
 	margin: auto;
 	border: 2px solid;
@@ -292,6 +291,14 @@ max-width: none;
 	border: 2px solid gray;
 	background-color: white;
 	border-radius: 8px;
+}
+
+.large-front-cover {
+	width: 50vw;
+	border: 2px solid gray;
+	background-color: white;
+	border-radius: 8px;
+	padding-top: 30px;
 }
 
 // User Styles //
@@ -323,12 +330,14 @@ max-width: none;
 	border-radius: 50%;
 	border: 4px solid white;
 	margin: 20px 20px 0 0;
+	width: 150px;
+	height: 150px;
 }
 
 .user-info {
 	background-color: white;
 	border-radius: 4px;
-	width: 20%;
+	width: 21.5%;
 	overflow: auto;
 	text-align: center;
 	position: fixed;

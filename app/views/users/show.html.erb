@@ -1,9 +1,8 @@
 <div class="container">
 	<div class="row fullWidth">
-		<div class="large-4 columns">
-			<div class="user-info">
+		<div class="large-4 columns user-info">
 				<p><%= image_tag @user.photo_url(:medium), class: "super-user" %></p>
-				<h1><%= @user.username %></h1>
+				<h4><%= @user.username %></h4>
 				<p><%= @user.first_name %> <%= @user.last_name %></p>
 
 				<p><%= render 'follow_form' if ( logged_in? && !(current_user == @user)) %></p>
@@ -18,23 +17,19 @@
 
 				<p><%= @user.home_town %>, <%= @user.country %> </p>
 				<div id='map-canvas'></div>
-
-			</div>
 		</div>
 
 		<div class="large-8 columns">
 			<p><%= @user.about_me %></p>
-			<div class="small-8 small-centered columns">
-				<h3>My Stories: </h3>
-				<div class="small-block-grid-2">
+				<div class="large-front-cover small-centered">
 				<% @user.own_stories.each do |story| %>
 					<div class="user_story">
-						<p><%= link_to story.title, story_path(story) %></p>
 							<% story.pages.each do |page| %>
 								<div class="user_page">
 									<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
 								</div>
 							<% end %>
+						<p><%= link_to story.title, story_path(story) %></p>
 							<div class="tags">
 								<% story.tags.any? %>
 								<% story.tags.each do |tag| %>
@@ -52,7 +47,6 @@
 						<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 					<% end %>
-			</div>
 
 			</div>
 		</div>
