@@ -1,25 +1,30 @@
-<h1>Stories with this tag:</h1>
-<% @stories.each do |story| %>
-	<div>
-		<p><%= story.title %></p>
-		<% story.pages.each do |page| %>
-			<div class="clickable_image">
-				<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
-			</div>
-		<% end %>
-		<div class="author_name">
-			<%= link_to story.owner.username, user_path(story.owner) %>
-		</div>
-		<div class="tags">
-			Tags:
-			<% story.tags.any? %>
-			<% story.tags.each do |tag| %>
-			  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+<div class="row">
+		<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 small-centered">
+			<% @stories.each do |story| %>
+				<li>
+					<div class="front-cover">
+						<% story.pages.each do |page| %>
+							<div class="clickable_image">
+								<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
+							</div>
+						<% end %>
+						<p><%= story.title %></p>
+						<div class="author_name">
+							<%= link_to story.owner.username, user_path(story.owner) %>
+						</div>
+						<div class="tags">
+							Tags:
+							<% story.tags.any? %>
+							<% story.tags.each do |tag| %>
+							  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+							<% end %>
+						</div>
+						<div class="story-<%=story.id%>">
+						  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
+						  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
+						</div>
+					</div>
+				</li>
 			<% end %>
-		</div>
-		<div class="story-<%=story.id%>">
-		  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
-		  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
-		</div>
+		</ul>
 	</div>
-<% end %>
