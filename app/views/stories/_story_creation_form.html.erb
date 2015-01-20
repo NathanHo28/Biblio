@@ -297,7 +297,6 @@
 		<%= f.select :country, rubized_counties  %>
 	</div>
 
-	<p> Illustrate your story: </p>
 	<div class="pages">
 		<%= f.fields_for :pages do |p| %>
 		<%= render 'page_fields', :f => p %>
@@ -305,8 +304,7 @@
 	<div>
 
 	<div class="action">
-		<%= link_to_add_association "Add Another Photo", f, :pages %> | <%= f.submit "Share Your Story" %>
-
+		<%= link_to_add_association "Add A Photo", f, :pages, class: "button" %>  <%= f.submit "Share Your Story", class: "button" %>
 	</div>
 </fieldset>
 
