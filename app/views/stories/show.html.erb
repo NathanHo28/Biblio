@@ -1,11 +1,43 @@
 <div class="story_show_page">
 	<%= render 'story_show' %>
 
-	<% if current_user %>
+
 		<h3>Comments:</h3>
 		<% @story.comments.each do |comment| %>
-			<p><%=comment.user.username%>: <%=comment.passage%> </p>
+			<p>
+				<% if comment.user != nil %>
+
+					<%=comment.user.username%>:
+				<% end %>
+
+				<%=comment.passage%> </p>
 		<% end %>
+
+	<% if current_user %>
+		<%= form_for([@story, @comment]) do |f| %>
+			<% if @comment.errors.any? %>
+				<div id="error_explanation">
+		    		<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this review from being saved:</h2>
+					<ul>
+						<% @comment.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+			<div class="field">
+				<%= f.label :passage %><br />
+				<%= f.text_area :passage %>
+		    </div>
+			<div class="actions">
+				<%= f.submit %>
+			</div>
+		<% end %>
+
+	<% else %>
+	  <p> <%= link_to "Log in", new_session_path %> to comment!</p>
 	<% end %>
+
 
 </div>

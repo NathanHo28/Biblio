@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   resources :pins, only: [:create, :show, :destroy]
   resources :user_sessions
   resources :stories do
+    resources :comments, only: [:show, :create, :destroy]
     member do
-      resources :reviews, only: [:show, :create, :destroy]
       put "like", to: "stories#upvote"
     end
   end

@@ -76,7 +76,8 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     if current_user
-      @comment = @comment.reviews.build
+      @comment = @story.comments.build
+    end
   end
 
   def edit
@@ -103,3 +104,4 @@ class StoriesController < ApplicationController
     params.require(:story).permit(:title, :cached_votes_score, :tag_list, :created_at, :latitude, :longitude, :city, :state, :country,  pages_attributes: [:id, :page_photo, :caption, :page_number, :story_id])
   end
 end
+

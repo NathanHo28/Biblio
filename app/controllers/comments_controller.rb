@@ -21,11 +21,11 @@ class CommentsController < ApplicationController
   end
 
 	private
-	def review_params
+	def comment_params
 		params.require(:comment).permit(:passage, :story_id)
 	end
 
-	def load_product
+	def load_story
 		@story = Story.find(params[:story_id])
 	end
 end
