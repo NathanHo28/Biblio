@@ -13,8 +13,7 @@ class UserSessionsController < ApplicationController
   	if @user = login(params[:email], params[:password], params[:remember_me])
   		redirect_back_or_to(root_url, notice: 'Login successful')
   	else
-  		flash.now[:alert] = 'Login failed'
-  		render action: 'new'
+  		redirect_to :back, alert: "Oops the email or password you provided is incorrect!"
   	end
   end
 
