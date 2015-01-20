@@ -15,12 +15,14 @@
 		</div>
 
 		<div class="row">
+			By <%=link_to story.owner.username, user_path(story.owner) %>
 			<% if logged_in? %>
-				<% if current_user.following?(story.owner) %>
-					By <%=link_to story.owner.username, user_path(story.owner) %> | <%= link_to "Unfollow", unfollow_user_path(story.owner) %>
-				<% else %>
-					By <%=link_to story.owner.username, user_path(story.owner) %> | <%= link_to "Follow", follow_user_path(user_id: story.owner) %>
-				<% end %>
+					<!-- not sure i even need the if logged-in in the first place, will current_user.following take care of that? -->
+					<% if current_user.following?(story.owner) %>
+						| <%= link_to "Unfollow", unfollow_user_path(story.owner) %>
+					<% else %>
+					 	| <%= link_to "Follow", follow_user_path(user_id: story.owner) %>
+					<% end %>
 			<% end %>
 
 			 | <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
@@ -31,7 +33,7 @@
 		</div>
 
 	</div>
-	
+
 	<div class="tags">
 		Tags:
 		<% story.tags.any? %>
