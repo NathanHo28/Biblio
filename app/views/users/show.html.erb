@@ -1,96 +1,105 @@
-<h1><%= @user.username %></h1>
+<div class="container">
+	<div class="row">
+		<div class="large-4 columns">
+			<div class="user-info">
+				<p><%= image_tag @user.photo_url(:medium), class: "super-user" %></p>
+				<h1><%= @user.username %></h1>
+				<p><%= @user.first_name %> <%= @user.last_name %></p>
+				
+				<p><%= render 'follow_form' if ( logged_in? && !(current_user == @user)) %></p>
 
-<p><%= link_to image_tag(@user.photo_url(:medium)), @user.photo_url(:large), class: "fancybox" %></p>
-
-<% if current_user == @user %>
-	<p><%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %> | <%= link_to('Edit', edit_user_path) %></p>
-<% end %>
-
-<p><%= @user.first_name %> <%= @user.last_name %></p>
-<p><%= @user.email %></p>
-<p><%= @user.home_town %>, <%= @user.country %> </p>
-
-<div id='map-canvas'></div>
-
-<p><%= @user.about_me %></p>
-
-<p><%= render 'follow_form' if ( logged_in? && !(current_user == @user)) %></p>
-
-<section class="stats">
-	<%= render 'shared/stats' %>
-</section>
-
-
-<script>
-function initialize() {
-
-	var location = new google.maps.LatLng(<%=@user.latitude %>, <%=@user.longitude %>)
-	var mapOptions = {
-    	zoom: 14,
-  		center: location
-  		// this takes the location from above
-  		};
-
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-   var marker = new google.maps.Marker({
-      position: location,
-      map: map,
-      title: 'Hello World!'
-       });
-
-	console.log("Runnning initialize", "mapOptions", mapOptions, "map", map)
-  }
-
-
-function loadScript() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-      'callback=initialize' + '&key=AIzaSyDbOWBVLGMzFWPviNHYf4f9HC7RBkfry4o';
-  console.log("Loading remote script")
-  document.body.appendChild(script);
-}
-
-window.onload = loadScript;
-console.log("Running loadscript")
-
-</script>
-
-
-
-
-
-
-
-
-<h3>My Stories: </h3>
-<div class="row">
-<% @user.own_stories.each do |story| %>
-	<div class="user_story">
-		<p><%= link_to story.title, story_path(story) %></p>
-			<% story.pages.each do |page| %>
-				<div class="user_page">
-					<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
-				</div>
-			<% end %>
-			<div class="tags">
-				<% story.tags.any? %>
-				<% story.tags.each do |tag| %>
-				  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+				<section class="stats">
+					<%= render 'shared/stats' %>
+				</section>
+				
+				<% if current_user == @user %>
+					<p><%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %> | <%= link_to('Edit', edit_user_path) %></p>
 				<% end %>
+				
+				<p><%= @user.home_town %>, <%= @user.country %> </p>
+				<div id='map-canvas'></div>
+				
 			</div>
-			<div class="story-<%=story.id%>">
-			  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
-			  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
-			</div>
-			<% if current_user == story.owner %>
-						<%= link_to "Edit Story", edit_story_path(story) %>
-			<% end %>
+			
 		</div>
-		<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-	<% end %>
-</div>
+
+		<div class="large-8 columns">
+			<p><%= @user.about_me %></p>
+			<div class="small-8 small-centered columns">
+				<h3>My Stories: </h3>
+				<div class="small-block-grid-2">
+				<% @user.own_stories.each do |story| %>
+					<div class="user_story">
+						<p><%= link_to story.title, story_path(story) %></p>
+							<% story.pages.each do |page| %>
+								<div class="user_page">
+									<%= link_to image_tag(page.page_photo_url(:medium)), page.page_photo_url(:large), class: "fancybox", :rel => story.title, :title => page.caption %>
+								</div>
+							<% end %>
+							<div class="tags">
+								<% story.tags.any? %>
+								<% story.tags.each do |tag| %>
+								  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+								<% end %>
+							</div>
+							<div class="story-<%=story.id%>">
+							  <p>Likes: <span class="score-<%=story.id%>"><%= story.score %></span></p>
+							  <p><%= link_to "upvote", like_story_path(story), method: :put, remote: true %></p>
+							</div>
+							<% if current_user == story.owner %>
+										<%= link_to "Edit Story", edit_story_path(story) %>
+							<% end %>
+						</div>
+						<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+					<% end %>
+			</div>
+			
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<script>
+	function initialize() {
+
+		var location = new google.maps.LatLng(<%=@user.latitude %>, <%=@user.longitude %>)
+		var mapOptions = {
+	    	zoom: 14,
+	  		center: location
+	  		// this takes the location from above
+	  		};
+
+	  var map = new google.maps.Map(document.getElementById('map-canvas'),
+	      mapOptions);
+	   var marker = new google.maps.Marker({
+	      position: location,
+	      map: map,
+	      title: 'Hello World!'
+	       });
+
+		console.log("Runnning initialize", "mapOptions", mapOptions, "map", map)
+	  }
+
+
+	function loadScript() {
+	  var script = document.createElement('script');
+	  script.type = 'text/javascript';
+	  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+	      'callback=initialize' + '&key=AIzaSyDbOWBVLGMzFWPviNHYf4f9HC7RBkfry4o';
+	  console.log("Loading remote script")
+	  document.body.appendChild(script);
+	}
+
+	window.onload = loadScript;
+	console.log("Running loadscript")
+
+	</script>
+
+
+
+
+
+
 
 

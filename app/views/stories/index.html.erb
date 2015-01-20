@@ -6,8 +6,11 @@
 </div>
 
 <p id="stories-count"><%= page_entries_info @stories %></p>
-
-	<%= render @stories %>
+	<div class="row">
+		<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+			<%= render @stories %>
+		</ul>
+	</div>
 
  <!-- <p id="stories-count"> page_entries_info @stories %></p> -->
 <div id="stories-pagination"><%= paginate @stories %></div>

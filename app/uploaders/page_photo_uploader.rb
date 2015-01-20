@@ -35,12 +35,16 @@ class PagePhotoUploader < CarrierWave::Uploader::Base
     process :resize_and_crop => [75]
   end
 
+  version :small do
+    process :resize_and_crop => [250]
+  end
+
   version :medium do
-    process :resize_and_crop => [296.8]
+    process :resize_and_crop => [500]
   end
 
   version :large do
-    process :resize_and_crop => [500]
+    process :resize_and_crop => [600]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
