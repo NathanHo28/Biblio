@@ -7,6 +7,10 @@ body {
 	background: image-url("stardust.png");
 }
 
+.top-title a {
+	font-family: 'Aclonica', sans-serif;
+}
+
 .submit {
 	margin: auto;
 	height: 100px;
@@ -252,7 +256,7 @@ fieldset {
 }
 
 label {
-
+	color: white;
 }
 
 .main-panel.author_name {

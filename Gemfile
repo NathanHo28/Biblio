@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 
- #ruby '2.1.2'
+ ruby '2.1.2'
 
 
 
@@ -67,7 +67,7 @@ gem "fog"
 
 gem "figaro"
 
-gem 'cancancan', '~> 1.10'
+# gem 'cancancan', '~> 1.10'
 
 group :production do
   gem 'rails_12factor'
