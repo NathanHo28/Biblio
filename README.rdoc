@@ -1,3 +1,10 @@
 == SEE SAW
 
-Currently running a beta server on seesawapp.heroku.com
+* Upload stories!
+
+* collaborate with your friends!
+
+* make your viewpoint heard!
+
+Currently running a beta server on http://see-saw.herokuapp.com/
+
